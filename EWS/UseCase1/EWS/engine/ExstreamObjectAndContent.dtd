@@ -1,0 +1,3046 @@
+<!-- Copyright (C) 2008-2017  Open Text  -->
+
+<!-- No part of this document may be photocopied, reproduced, translated, or transmitted in any form  -->
+<!-- or by any means without the prior written consent of Open Text Any unauthorized duplication  -->
+<!-- in whole or in part is strictly prohibited by United States federal law. Open Text will enforce  -->
+<!-- its copyright to the full extent of the law. -->
+
+<!-- Generated at Tue Mar  9 16:49:59 2004 by Cpp2Dtd.pl -->
+
+<!-- DTD version 2009.2 -->
+
+<!-- DXF supports thirteen different root nodes: -->
+<!-- Use dlg:page for a single page. -->
+<!-- Use dlg:document for a multi-page document. -->
+<!-- Use dlg:paragraph for a single paragraph. -->
+<!-- Use dlg:section for multiple paragraphs in a section. -->
+<!-- Use dlg:library-component for a single library component. -->
+<!-- Use dlg:application for multiple documents or library components. -->
+<!-- Use dlg:dxf-text for a snippet of text for a formatted text variable. -->
+<!-- Use dlg:barcode for a single barcode. -->
+<!-- Use dlg:inserter for a single inserter. -->
+<!-- Use dlg:message for a single message. -->
+<!-- Use dlg:campaign for a multi-message campaign. -->
+<!-- Use dlg:cascading-style-sheet for a cascading style sheet -->
+<!-- Use dlg:container-label for a container design label -->
+
+<!-- For detailed explanation of fo: elements, see http://www.w3.org/TR/xsl/ -->
+
+<!-- Enties for handling special characters -->
+
+<!ENTITY return "&#x0D;">
+<!ENTITY nbsp "&#xA0;">
+<!ENTITY softhyphen "&#xAD;">
+
+<!-- Entities borrowed from SVG 1.0 ============================== -->
+
+<!ENTITY % Boolean "( false | true )">
+<!ENTITY % Color "CDATA">
+<!ENTITY % Coordinate "CDATA">
+<!ENTITY % Integer "CDATA">
+<!ENTITY % Number "CDATA">
+<!ENTITY % Text "CDATA">
+
+<!-- DDS entities; Reference is "type oid name" -->
+
+<!ENTITY % Reference "CDATA">
+<!ENTITY % Date "CDATA">
+<!ENTITY % Rect  "CDATA">
+
+<!-- Enumerations ================================================ -->
+
+<!ENTITY % bitsTextDecoration "( none | underline | overline | line-through | blink )">
+<!ENTITY % enumAggregateDataBoundary "( no | yes )">
+<!ENTITY % enumAggregateDataEnable "( no | yes )">
+<!ENTITY % enumAlignBlock "( auto | before | center | after )">
+<!ENTITY % enumAlignText "( start | center | end | justify | left | right )">
+<!ENTITY % enumAllowDocCombination "( no | yes-all )">
+<!ENTITY % enumAllowedVariableUse "( none | personalize | rule | any )">
+<!ENTITY % enumAnchorPoint "( tl | bl | tr | br )">
+<!ENTITY % enumArrayReset "( auto | customer | none | section-name | all-sections )">
+<!ENTITY % enumArrayType "( static | growing )">
+<!ENTITY % enumBackPageTypes "( blank | page | campaign )">
+<!ENTITY % enumBaselineAlign "( auto | baseline | before-edge | text-before-edge | middle | central | after-edge | text-after-edge | top | text-top | bottom | text-bottom | ideographic | alphabetic | hanging | mathematical )">
+<!ENTITY % enumBaselineDominant "( auto | use-script | no-change | reset-size | ideographic | alphabetic | hanging | mathematical | central | middle | text-after-edge | text-before-edge )">
+<!ENTITY % enumBreakInside "( avoid | auto )">
+<!ENTITY % enumButtonBorderStyle "( square | round | button | image )">
+<!ENTITY % enumButtonStyle "( button | link | image | radio | check | check-x | check-3d | check-filled | check-x-wide | check-thin | check-x-thin | check-3d-thin | check-filled-thin | check-x-wide-thin | radio-full | check-flat | check-x-flat | check-3d-flat | check-filled-flat | check-x-wide-flat | radio-flat | check-std-img | radio-std-img | signature-button | signature-box | signed )">
+<!ENTITY % enumButtonType "( radio-button | check-box | custom-button | signature-button )">
+<!ENTITY % enumClear "( start | end | left | right | both | none )">
+<!ENTITY % enumCodeTrace "( none | sourceline | assigned | all )">
+<!ENTITY % enumColorCondition "( ignore | equal | not-equal | greater-than | less-than | greater-than-or-equal |  less-than-or-equal | greater-than-zero | less-than-zero | equal-zero )">
+<!ENTITY % enumCombType "( none | box | bevel | comb | comb-top-bottom | underscore | corners )">
+<!ENTITY % enumComputeTime "( as-needed | document | subaccount | page | row | post-customer | initialize | complete | named-section | init-post-sort | do-not-compute | data-aggregration )">
+<!ENTITY % enumConditionality "( retain | discard )">
+<!ENTITY % enumContainerClip "( ignore-clipping | clip-to-width )">
+<!ENTITY % enumContainerType "( vertical-span | horizontal-span | vertical-tile | horisontal-tile | absolute-position | grid-layout )">
+<!ENTITY % enumCellAlignmentType "( top-left | top-center | top-right | middle-left | middle-center | middle-right | bottom-left | bottom-center | bottom-right )">
+<!ENTITY % enumClearFloatingObjects "( none | left | right | both )" >
+<!ENTITY % enumContentPickType "( static-list | variable-list | calendar | file | none | built-in )">
+<!ENTITY % enumContentType "( empty | text | formatted-text | image )" >
+<!ENTITY % enumCornerStyle "( point | round )" >
+<!ENTITY % enumCSSInsertionType "( none | inline | internal )" >
+<!ENTITY % enumDataType "(string | integer | boolean | float | date | currency | placeholder | tagged-text | unknown | none)">
+<!ENTITY % enumDelayComp "( none | end-of-customer | end-of-section-doc | post-sort | late-erase )">
+<!ENTITY % enumDesignTypes "( template | page | graphic | textmessage | insert | browse | mup | form )">
+<!ENTITY % enumDirection "( ltr | rtl )">
+<!ENTITY % enumDocCombination "( start-new-document | start-new-document-first-time | combine | start-new-document-first-time-sub | combine-sub )">
+<!ENTITY % enumDocDuplexControl "( none | duplex )">
+<!ENTITY % enumDocDuplexMode "( no-no | yes-no | no-yes | yes-yes )">
+<!ENTITY % enumDocNumberTypes "( number | alpha-upper | alpha-lower | roman-upper | roman-lower | text-upper | text-mixed | text-lower | none | doc-prefix )">
+<!ENTITY % enumDocSelection "( rule | named-section | variable-and-rule | variable-no-rule | end-named-section )">
+<!ENTITY % enumDocTOCSep "( dash | dot | space )">
+<!ENTITY % enumDocumentUse "( normal | pass-through | force-duplex )">
+<!ENTITY % enumDocxPart "( body | header | footer )">
+<!ENTITY % enumDrawTableTypes "( user | simple | auto | sets | levels | autoboth )">
+<!ENTITY % enumEditingChangeType "( none | optional | required )" >
+<!ENTITY % enumEmbedAnchor "( upper-left | upper-center | upper-right | center-right | bottom-right | bottom-center | bottom-left | center-left | center )" >
+<!ENTITY % enumEmbedMethod "( inline | link | link-X | link-Y | link-XY | float )" >
+<!ENTITY % enumEncoding "( base64 )">
+<!ENTITY % enumEndPtTypes "( none | line | square | circle | diamond | feather1 | feather2 | arrow1 | arrow2 | arrow3 | arrow4 )">
+<!ENTITY % enumFitText "( none | shrink | grow | both )">
+<!ENTITY % enumFloat "( before | start | end | left | right | none )">
+<!ENTITY % enumFlowAround "( none | fit | rect )">
+<!ENTITY % enumFlowBreak "( auto | always | notfirst )">
+<!ENTITY % enumFlowControl "(none | all | in-only | out-only)">
+<!ENTITY % enumFlowTargetType "( any | any-unnamed | any-names | named )">
+<!ENTITY % enumFlowType "(none | repeat | specific | warning | error)">
+<!ENTITY % enumFontSelectionStrategy "( auto | character-by-character )">
+<!ENTITY % enumFontStretch "( normal | wider | narrower | ultra-condensed | extra-condensed | condensed | semi-condensed | semi-expanded | expanded | extra-expanded | ultra-expanded )">
+<!ENTITY % enumFontStyle "( normal | italic | oblique | backslant )">
+<!ENTITY % enumFontVariant "( normal | small-caps )">
+<!ENTITY % enumFontWeight "( normal | bold | bolder | lighter | 100 | 200 | 300 | 400 | 500 | 600 | 700 | 800 | 900 )">
+<!ENTITY % enumFormFieldSource "( application | library | local )">
+<!ENTITY % enumFrameFillMethod "( sequential | sequential-float | article | article-float )">
+<!ENTITY % enumFrameFlowAround "( no | yes | hide | hideonly )">
+<!ENTITY % enumFrameRelative "( none | relative | relative-fixed )" >
+<!ENTITY % enumFrameStyle "( none | frame | double-line )">
+<!ENTITY % enumFrameStyles "( frame | top | bottom | both | bevel | round | doubleline | tab | tabtext | roundrt | roundlft | arrow | arrowleft | dblarrow | arrowup | arrowdown | bulletleft | bulletrt | sbulletleft | sbulletrt | bevelrt | bevellft | circle | diamond | star | plus )">
+<!ENTITY % enumHaveFootnote "( none | pageonly | any )">
+<!ENTITY % enumHiddenType "( none | user-atomic | variable-user | variable-auto )">
+<!ENTITY % enumIgnoreRelative "( no | ignore | ignorebreak )">
+<!ENTITY % enumImageConvert "( black-and-white | color-and-white | highlight-color )">
+<!ENTITY % enumImportType "( none | ascii | rtf | tiff-g4 | imageresource | overlayresource | tiffpassthrough | jpegpassthrough | epspassthrough | afpf-s45-passthrough | pdfpassthrough | png | pngpassthrough | pdf | webverse | afpf-pseg-passthrough | live | taggedtext | formattedtext )">
+<!ENTITY % enumInclusionMethod "( rule | named-section )">
+<!ENTITY % enumIntrusionDisplace "( auto | none | line | indent | block )">
+<!ENTITY % enumJurisdictionUse "( all  | specified | except)">
+<!ENTITY % enumKeepHyphenation "( auto | column | page )">
+<!ENTITY % enumKeepWith "( auto | always )">
+<!ENTITY % enumLeaderAlignment "( none | reference-area | page )">
+<!ENTITY % enumLeaderPattern "( space | rule | dots | use-content )">
+<!ENTITY % enumLineStackingStrategy "( line-height | font-height | max-height )">
+<!ENTITY % enumLineStyle "( none | solid | dashed | dotted | double | groove | ridge | inset | outset | shortdashed | fardashed )">
+<!ENTITY % enumLinefeedTreatment "( ignore | preserve | treat-as-space | treat-as-zero-width-space )">
+<!ENTITY % enumLinkType "( none | static | variable )">
+<!ENTITY % enumListType "( none | bullet | number )">
+<!ENTITY % enumLiveInheritanceType "( never | always | honor-parent )">
+<!ENTITY % enumLiveSelection "( none | pick-0-or-1 | pick-1 | pick-n | pick-n-to-m )">
+<!ENTITY % enumLiveValidation "( default | warn | require )" >
+<!ENTITY % enumLocked "( no | all )">
+<!ENTITY % enumLookupAction "( clear | keep | clearmsg | keepmsg | clearerr | keeperr )">
+<!ENTITY % enumLookupType "( static | array | arraysorted )">
+<!ENTITY % enumOrientation "( 0 | 90 | 180 | 270 )">
+<!ENTITY % enumOrientations "( none | portrait | landscape | portrait-reversed | landscape-reversed | any )">
+<!ENTITY % enumOverflow "( visible | hidden | scroll | auto | error-if-overflow )">
+<!ENTITY % enumPageNameMethod "( design | static | variable )" >
+<!ENTITY % enumMsgSelection "( rule | variable-and-rule | variable-no-rule )">
+<!ENTITY % enumNegativeFormat "( minus | minussp | minusafter | minusaftersp | paren | parensp | brace | bracesp | c-rafter )">
+<!ENTITY % enumNumberCountMode "( auto | restart | never-restart )">
+<!ENTITY % enumNumberTypes "( num | bullet | alpha-upper | alpha-lower |  roman-upper | roman-lower | num-paren | alpha-upper-paren | alpha-lower-paren |  roman-upper-paren | roman-lower-paren | text-upper | text-mixed | text-lower | num-ordinal | num-double-paren | alpha-upper-double-paren | alpha-lower-double-paren |  roman-upper-double-paren | roman-lower-double-paren )">
+<!ENTITY % enumPageBreak "( auto | always | avoid | left | right )">
+<!ENTITY % enumPagePositions "( as-placed | specific | campaign | flow-page | last-flow-page | last-flow-page-always | pass-through-filler-auto | pass-through-fixed-number )">
+<!ENTITY % enumParaSelection "( rule | variable-section-rule | variable-section-no-rule | variable-paragraph-rule | variable-paragraph-no-rule )">
+<!ENTITY % enumPickListType "( dropdown | list | checklist | basket )">
+<!ENTITY % enumPosition "( auto | absolute | fixed )">
+<!ENTITY % enumRelativeAlign "( before | baseline )">
+<!ENTITY % enumRenderingIntent "( auto | perceptual | relative-colorimetric | saturation | absolute-colorimetric )">
+<!ENTITY % enumRuleRunTime "( normal | at-end )">
+<!ENTITY % enumRuleStyle "( none | dotted | dashed | solid | double | groove | ridge )">
+<!ENTITY % enumSectionParagraphUsage "( flow-frame-only | content-frame-only | any )">
+<!ENTITY % enumSelectionPromptType "( edit-area-name | object-name | pickup-text | live-caption )">
+<!ENTITY % enumShadowTypes "( none | lr )">
+<!ENTITY % enumShapes "( misc | circle | bullet | sbullet | diamond | arrow | sarrow | darrow | dlarrow | linearrow | parallel | plus | rightangle | trapezoid | rdrect | check | triangle | rect | poly5 | poly6 | poly7 | poly8 | poly9 | poly10 | multigon | multistar | half-circle | half-moon | quarter-circle | eighth-circle | tab | rdleft | rdright | bevel | arrowleft | arrowdown | arrowup | bezier )">
+<!ENTITY % enumShiftAdjustment "( consider-shifts | disregard-shifts )">
+<!ENTITY % enumSignatureScope "( file | customer | document | page | none )">
+<!ENTITY % enumSignatureMethod "(built-in | function )">
+<!ENTITY % enumSpaceUse "( templateonly | samemsgtype | any | passthrough )" >
+<!ENTITY % enumSpan "( none | all )">
+<!ENTITY % enumSpeak "( normal | none | spell-out )">
+<!ENTITY % enumSpeakHeader "( once | always )">
+<!ENTITY % enumSpeakNumeral "( digits | continuous )">
+<!ENTITY % enumSpeakPunc "( code | none )">
+<!ENTITY % enumSuperSub "( superscript | subscript )">
+<!ENTITY % enumSuppressAtLineBreak "( auto | suppress | retain )">
+<!ENTITY % enumTabAlign "( left | center | right | align-on )">
+<!ENTITY % enumTableComposeType "( static | halfstatic | immediate | delayed )">
+<!ENTITY % enumTableFrameStyles "( frame | doubleline | round )">
+<!ENTITY % enumTextAlignLast "( relative | start | center | end | justify | left | right )">
+<!ENTITY % enumTextBreak "( auto | column | page | even-page | odd-page )">
+<!ENTITY % enumTextFieldType "( none | data | form | text )" >
+<!ENTITY % enumTextTransform "( capitalize | uppercase | lowercase | none )">
+<!ENTITY % enumTitlePosition "( none | above | below )">
+<!ENTITY % enumTrackingLevel "( none | summary | customer )">
+<!ENTITY % enumTreatAsWordSpace "( auto | true | false )">
+<!ENTITY % enumUnicodeBidi "( normal | embed | bidi-override )">
+<!ENTITY % enumValidateAction "( continue | setdefault | error | skip )">
+<!ENTITY % enumValidateType "( none | value-range | length-range | eq | gt | gteq | lt | lteq | ne | function )">
+<!ENTITY % enumVariableCalcMethod "( constant | formula | counter | fileonly | system | crossref | systemtable )">
+<!ENTITY % enumVaruseArrayUse "( automatic | specified | all-with-blank-separator | all-with-line-breaks | all-as-paragraphs | all-as-list)">
+<!ENTITY % enumVaruseJustification "( none | left | right )">
+<!ENTITY % enumVarusePadCharacter "( space | zero )">
+<!ENTITY % enumVaruseAggregation "( none | combine | must-match )">
+<!ENTITY % enumVisibility "( visible | hidden | collapse )">
+<!ENTITY % enumWatchLevel "( none | changed | set )">
+<!ENTITY % enumWebVersePlaceholderType "( gif | png | jpeg | flash | pdf | rtf | doc | xls | ppt )">
+<!ENTITY % enumWebVerseScope "( unknown | implicit | form | stack | process | session | profile )">
+<!ENTITY % enumWhiteSpace "( normal | pre | no-wrap )">
+<!ENTITY % enumWhiteSpaceTreatment "( ignore | preserve | ignore-if-before-linefeed | ignore-if-after-linefeed | ignore-if-surrounding-linefeed )">
+<!ENTITY % enumWrapOption "( no-wrap | wrap )">
+<!ENTITY % enumWritingMode "( lr-tb | rl-tb | tb-rl | lr | rl | tb )">
+<!ENTITY % enumPagePlacements "( any | front | frontwnobacks | anynomatch | frontnomatch)">
+<!ENTITY % enumMessagePageType "( text | graphic | insert | both | page | msg-analysis | multipleup | form | paragraph)">
+<!ENTITY % enumUnicodeScript "( latin | arabic | hebrew )">
+<!ENTITY % enumUnicodeDigits "( ascii | arabic | arabic-east )">
+<!ENTITY % enumBarcodeTypes "( omr | 3of9 | 2of5 | postnet | general | gbr-omr | data-matrix | code128 | ean128 | japanese-postal | modified-plessey | upc | pdf417 | qr-code | four-state | ean8 )">
+<!ENTITY % enumBarcodeOutputType "( pdl-draw | bcoca )">
+<!ENTITY % enumBarcodeUse "( message | page | template | all | inserter )">
+<!ENTITY % enumBarcodeCorner "( ulp | ull )">
+<!ENTITY % enumHRITypes "( none | above | below | position )">
+<!ENTITY % enumDMErrorLevel "( none | 10 | 40 | 50 | 60 | 70 | 80 | 90 | 100 | 110 | 120 | 130 | 140 | 200 )">
+<!ENTITY % enumDMDataType "( full | numeric | upper-alpha | upper-alpha-punc | upper-alpha-num )">
+<!ENTITY % enum417ErrorLevel "( 10 | 11 | 12 | 13 | 14 | 15 | 16 | 17 | 18 )">
+<!ENTITY % enum417Compaction "( text | byte | numeric | mixed )">
+<!ENTITY % enum417Cols "( auto | 1 | 2 | 3 | 4 | 5 | 6 | 7 | 8 | 9 | 10 | 11 | 12 | 13 | 14 | 15 | 16 | 17 | 18 | 19 | 20 | 21 | 22 | 23 | 24 | 25 | 26 | 27 | 28 | 29 | 30 )">
+<!ENTITY % enumQRSymbVersion "( auto | 1 | 2 | 3 | 4 | 5 | 6 | 7 | 8 | 9 | 10 | 11 | 12 | 13 | 14 | 15 | 16 | 17 | 18 | 19 | 20 | 21 | 22 | 23 | 24 | 25 | 26 | 27 | 28 | 29 | 30 | 31 | 32 | 33 | 34 | 35 | 36 | 37 | 38 | 39 | 40 )">
+<!ENTITY % enumQRErrorLevel "( low | medium | quartil | high )">
+<!ENTITY % enumQRMaskPattern "( auto | 0 | 1 | 2 | 3 | 4 | 5 | 6 | 7 )">
+<!ENTITY % enumPartTypes "( empty | variable | first-page | last-page | not-first-page | not-last-page | q-doc-num | stream-doc-num | total-pages | doc-page-num | q-page-num | stream-page-num | omr-odd | omr-even | check-base | check-2of5 | check-3x1x | bin1 | bin2 | bin3 | bin4 | bin5 | bin6 | bin7 | bin8 | bin9 | bin10 | bin11 | bin12 | bins-1to4 | bins-5to8 | bins-9to12 | bins-13to16 | message-id | campaign-id | sheet-number | total-sheets | q-sheet-num | stream-sheet-num | always1 | gbr8 | gbr16 | check-base-sum | check-code-128 | check-jpostal | check-msi-mod10 | check-msi-mod11 | check-upc | bin13 | bin14 | bin15 | bin16 | bin17 | bin18 | bin19 | bin20 | bin21 | bin22 | bin23 | bin24 | bin25 | bin26 | bin27 | bin28 | bin29 | bin30 | bin31 | bin32 )">
+<!ENTITY % enumBinActions "( ignore | language-only | electronic )">
+<!ENTITY % enumBCPageSide "( front | back | both | mup-even | mup-odd | mup12 | mup14 | mup23 | mup34 | mup1 | mup2 | mup3 | mup4 )">
+<!ENTITY % enumWeightSelectionType "( static | variable-oz | variable-grams )">
+<!ENTITY % enumInserterInputActions "( no-change | replace | output-nothing )">
+<!ENTITY % enumActivityDelayTypes "( none | times | days )">
+<!ENTITY % enumCampaignType "( always | only-if-free | filler | must-go | content-only | exclude-all-if-no-teaser | exclude-all-if-add-postage )">
+<!ENTITY % enumExclusivities "( non-exclusive | page | sheet | keep-together )">
+<!ENTITY % enumPriorityTypes "( constant | rules )">
+<!ENTITY % enumRuleTiming "( end | beginning | named-first | named-all )">
+<!ENTITY % enumRunPlan "( always | include-dates | exclude-dates )">
+<!ENTITY % enumTargetActivities "( none | if-sent | if-respond | if-not-respond )">
+<!ENTITY % enumTargetMethods "( all | rule | list | activity | complex )">
+<!ENTITY % enumTrackingLevels "( none | summary | customer )">
+<!ENTITY % enumWhichDocs "( once | copy | current )">
+<!ENTITY % enumChartTypes "( pie | line | bar | stacked-bar | progress | comparative-bar | horizontal-bar | horizontal-stacked-bar | area | calendar | range | scatter | radar | comparative-line | scattergram | floating-bar )">
+<!ENTITY % enumLegendPos "( none | bottom | right | left | labels | manual )">
+<!ENTITY % enumDisplayLevel "( default | low | medium | high )">
+<!ENTITY % enumTickStyles "( none | outside | cross | inside )">
+<!ENTITY % enumRangeMethod "( specified | auto | auto-0-min | data | variable )">
+<!ENTITY % enumTickMethod "( auto | specified | auto-padded )">
+<!ENTITY % enumXAxisLabelOrientation "( normal | face-right | face-left | face-right-align-right | slant-up | slant-down )">
+<!ENTITY % enumDataLabelBkgrType "( none | specified | match-plot-area )">
+<!ENTITY % enumDataLabelPlacement "( above-data-points | below-data-points )">
+<!ENTITY % enumDataLabelInPlotAreaMethod "( none | increase-range | move-labels )">
+<!ENTITY % enumCollisionAvoidance "( none | avoid )">
+<!ENTITY % enumDataLabelSeries "( primary | secondary | both )">
+<!ENTITY % enumLabelColorSel "( default | match-series | set-series )">
+<!ENTITY % enumBarLabelPlace "( above | below | by-direction )">
+<!ENTITY % enumLabelDispLev "( default | last-point )">
+<!ENTITY % enumBarLabelOrientation "( normal | face-right | face-left | slant-up | slant-down )">
+<!ENTITY % enumZeroLineProps "( old-behavior | none | grid | solid )">
+<!ENTITY % enumAxisPosition "( left | right | both )">
+<!ENTITY % enumCrosshairType "( none | static | variable )">
+<!ENTITY % enumBkgrRangeFillType "( none | static | variable )">
+<!ENTITY % enumAxis "( x | y )">
+<!ENTITY % enumDataLabelType "( none | array | per-series )">
+<!ENTITY % enumChartFrameType "( none | full | top-line | bottom-line | top-and-bottom )">
+<!ENTITY % enumLegendSpacing "( auto | single | one-and-half | double | triple )">
+<!ENTITY % enumAxesFrameType "( none | full | left )">
+<!ENTITY % enumTimeInc "( auto | hour | day | week | month | quarter | year )">
+<!ENTITY % enumAxisScale "( auto | integer | float | currency )">
+<!ENTITY % enumAutoReduceYAxis "( none | auto | auto-append )">
+<!ENTITY % enumPieSortType "( none | descending | ascending | descending-style | ascending-style )">
+<!ENTITY % enumPieFilter "( none | value | value-max | percent | percent-max )">
+<!ENTITY % enumPieFilterCombine "( discard | combine | combine-and-explode )">
+<!ENTITY % enumScatterLabelAngle "( normal | face-right | face-left | normal-caption-below | face-right-caption-below | face-left-caption-below )">
+<!ENTITY % enumLabelLineMethod "( off | on | auto )">
+<!ENTITY % enumLabelScale "( data-as-labels | numeric-scale | time-scale )">
+<!ENTITY % enumMetaDataOptions "( do-not-read | read-alternate-text | read-object-text )">
+<!ENTITY % enumPdfTagOptions "( default | document | part | division | article | section | paragraph | heading | heading1 | heading2 | heading3 | heading4 | heading5 | heading6 | list | list-item | label | list-body | block-quote | caption | index | toc | toc-item | table | table-row | table-data-cell | table-header-cell | bibliography | quote | span | code | figure | form | formula | link | note | reference )">
+<!ENTITY % enumMetaLanguage "( default | catalan | chinese | chinese-tw | chinese-hk | czech | danish | dutch | english-us | english-au | english-uk | finnish | french | french-ca | german | hungarian | italian | norway | newnorway | polish | portug | brazil | russian | spanish | swedish | japanese )">
+<!ENTITY % enumFootnoteContent "( text | variable | text-message )">
+<!ENTITY % enumFootnoteNumber "( auto | specific | specific-collapse )">
+<!ENTITY % enumFootnoteIndicatorPlacement "( current | left )">
+<!ENTITY % enumFootnoteInclude "( always | var-gt-0 | var-ne-1 | if-count-var | if-not-count-var )">
+<!ENTITY % enumFootnotePlacement "( anywhere | same-page | same-document )">
+<!ENTITY % enumCrossRefPopulate "( page-number | paragraph-number )">
+<!ENTITY % enumEntryText "( static | variable | paragraph | none )">
+<!ENTITY % enumTOCType "( complete | sub-document )">
+<!ENTITY % enumTOCPagePositionType "( none | right-column | adjacent-to-text )">
+<!ENTITY % enumPARA_JUSTIFY "( left | right | center | both | nil | right-tab | span )">
+<!ENTITY % enumIndexOrder "( alphabetical | page-order | current-locale )">
+<!ENTITY % enumIndexRelative "( none | inline | before-alpha | after-alpha )">
+<!ENTITY % enumIndexPageNums "( none | append | right )">
+<!ENTITY % enumImagePathLocation "(user-specified-path | user-specified-variable | use-output-dir )">
+<!ENTITY % enumAutomatedRowType "( none | row | header | footer | rpt-header | rpt-footer | rpt-header-not-first | rpt-footer-not-last | footer-subsections | header-first-onpage | header-not-first-onpage | table-row | table-header | rpt-table-header | rpt-table-header-not-first | table-footer | rpt-table-footer | rpt-table-footer-not-last | header-top-flow-frame | header-middle-flow-frame | divide-row )">
+<!ENTITY % enumAutomatedRowProcess "( specified | variable-count | var-filter-not-equal | var-filter-equal | variable-value )">
+<!ENTITY % enumAutomatedRowOverlap "( overlap-none | overlap-top | overlap-center | overlap-bottom )">
+<!ENTITY % enumAutoRowColumnFlow "( column | row | none | serpentine | serpentine-spaced )">
+<!ENTITY % enumSectionUses "( always | variable-count | variable-value | variable-count-not | variable-value-not | named | named-first | level | level-first | end-of-customer )">
+<!ENTITY % enumRowSpecialProps "( none | add-to-previous | make-multiple-sections )">
+<!ENTITY % enumIncludeHigher "( none | yes )">
+<!ENTITY % enumLineSpaces "( single | one-and-half | double | at-least | exact | multiple | exact-word )">
+<!ENTITY % enumSignatureFieldType "(sign | initial | date | full-name | other )">
+<!ENTITY % enumHyperlinkType "( none | static | dynamic | internal )">
+
+<!ENTITY % enumFittingValues "( no-resizing | fit-image-to-object | fit-image-proportionally | variable | false | true )">
+
+<!ENTITY % enumCSSStorageType "( file | user-content )">
+
+<!-- XSL Entities ================================================ -->
+
+<!ENTITY % dlg-meta-props-attributes "
+	meta-order %Integer; #IMPLIED
+	meta-props-alternate-text %Text; #IMPLIED
+	meta-props-language %Text; #IMPLIED
+	meta-props-options %enumMetaDataOptions; #IMPLIED
+	meta-props-order %Integer; #IMPLIED
+	meta-props-pdf-tag %enumPdfTagOptions; #IMPLIED
+"
+>
+
+<!ELEMENT fo:base EMPTY>
+
+<!-- role - Unsupported. -->
+<!-- source-document - Unsupported. -->
+<!ELEMENT fo:accessibility-props EMPTY>
+<!ENTITY % fo-accessibility-props-attributes "
+	role %Text; #IMPLIED
+	source-document %Text; #IMPLIED
+">
+<!ATTLIST fo:accessibility-props %fo-accessibility-props-attributes;>
+
+<!-- border - Unsupported. -->
+<!-- border-after-width.conditionality - Unsupported. -->
+<!-- border-after-width.length - Unsupported. -->
+<!-- border-before-width.conditionality - Unsupported. -->
+<!-- border-before-width.length - Unsupported. -->
+<!-- border-bottom - Unsupported. -->
+<!-- border-bottom-width.conditionality - Unsupported. -->
+<!-- border-bottom-width.length - Unsupported. -->
+<!-- border-end-width.conditionality - Unsupported. -->
+<!-- border-end-width.length - Unsupported. -->
+<!-- border-left - Unsupported. -->
+<!-- border-left-width.conditionality - Unsupported. -->
+<!-- border-left-width.length - Unsupported. -->
+<!-- border-right - Unsupported. -->
+<!-- border-right-width.conditionality - Unsupported. -->
+<!-- border-right-width.length - Unsupported. -->
+<!-- border-start-width.conditionality - Unsupported. -->
+<!-- border-start-width.length - Unsupported. -->
+<!-- border-top - Unsupported. -->
+<!-- border-top-width.conditionality - Unsupported. -->
+<!-- border-top-width.length - Unsupported. -->
+<!-- padding - Unsupported. -->
+<!-- padding-after - Unsupported. -->
+<!-- padding-after.conditionality - Unsupported. -->
+<!-- padding-after.length - Unsupported. -->
+<!-- padding-before - Unsupported. -->
+<!-- padding-before.conditionality - Unsupported. -->
+<!-- padding-before.length - Unsupported. -->
+<!-- padding-bottom - Unsupported. -->
+<!-- padding-bottom.conditionality - Unsupported. -->
+<!-- padding-bottom.length - Unsupported. -->
+<!-- padding-end - Unsupported. -->
+<!-- padding-end.conditionality - Unsupported. -->
+<!-- padding-end.length - Unsupported. -->
+<!-- padding-left - Unsupported. -->
+<!-- padding-left.conditionality - Unsupported. -->
+<!-- padding-left.length - Unsupported. -->
+<!-- padding-right - Unsupported. -->
+<!-- padding-right.conditionality - Unsupported. -->
+<!-- padding-right.length - Unsupported. -->
+<!-- padding-start - Unsupported. -->
+<!-- padding-start.conditionality - Unsupported. -->
+<!-- padding-start.length - Unsupported. -->
+<!-- padding-top - Unsupported. -->
+<!-- padding-top.conditionality - Unsupported. -->
+<!-- padding-top.length - Unsupported. -->
+<!ELEMENT fo:border-padding-background-props EMPTY>
+<!ENTITY % fo-border-padding-background-props-attributes "
+	background %Text; #IMPLIED
+	background-attachment %Text; #IMPLIED
+	background-color %Color; #IMPLIED
+	background-image %Text; #IMPLIED
+	background-position %Text; #IMPLIED
+	background-position-horizontal %Text; #IMPLIED
+	background-position-vertical %Text; #IMPLIED
+	background-repeat %Text; #IMPLIED
+	border %Text; #IMPLIED
+	border-after-color %Color; #IMPLIED
+	border-after-style %enumLineStyle; #IMPLIED
+	border-after-width %Integer; #IMPLIED
+	border-after-width.conditionality %enumConditionality; #IMPLIED
+	border-after-width.length %Text; #IMPLIED
+	border-before-color %Color; #IMPLIED
+	border-before-style %enumLineStyle; #IMPLIED
+	border-before-width %Integer; #IMPLIED
+	border-before-width.conditionality %enumConditionality; #IMPLIED
+	border-before-width.length %Text; #IMPLIED
+	border-bottom %Text; #IMPLIED
+	border-bottom-color %Color; #IMPLIED
+	border-bottom-style %enumLineStyle; #IMPLIED
+	border-bottom-width %Integer; #IMPLIED
+	border-bottom-width.conditionality %enumConditionality; #IMPLIED
+	border-bottom-width.length %Text; #IMPLIED
+	border-bottom-left-color %Color; #IMPLIED
+	border-bottom-left-corner-style %enumCornerStyle; #IMPLIED
+	border-bottom-left-corner-visible %Boolean; #IMPLIED
+	border-bottom-left-radius %Integer; #IMPLIED
+	border-bottom-left-style %enumLineStyle; #IMPLIED
+	border-bottom-left-width %Integer; #IMPLIED
+	border-bottom-right-color %Color; #IMPLIED
+	border-bottom-right-corner-style %enumCornerStyle; #IMPLIED
+	border-bottom-right-corner-visible %Boolean; #IMPLIED
+	border-bottom-right-radius %Integer; #IMPLIED
+	border-bottom-right-style %enumLineStyle; #IMPLIED
+	border-bottom-right-width %Integer; #IMPLIED
+	border-color %Color; #IMPLIED
+	border-end-color %Color; #IMPLIED
+	border-end-style %enumLineStyle; #IMPLIED
+	border-end-width %Integer; #IMPLIED
+	border-end-width.conditionality %enumConditionality; #IMPLIED
+	border-end-width.length %Text; #IMPLIED
+	border-left %Text; #IMPLIED
+	border-left-color %Color; #IMPLIED
+	border-left-style %enumLineStyle; #IMPLIED
+	border-left-width %Integer; #IMPLIED
+	border-left-width.conditionality %enumConditionality; #IMPLIED
+	border-left-width.length %Text; #IMPLIED
+	border-right %Text; #IMPLIED
+	border-right-color %Color; #IMPLIED
+	border-right-style %enumLineStyle; #IMPLIED
+	border-right-width %Integer; #IMPLIED
+	border-right-width.conditionality %enumConditionality; #IMPLIED
+	border-right-width.length %Text; #IMPLIED
+	border-start-color %Color; #IMPLIED
+	border-start-style %enumLineStyle; #IMPLIED
+	border-start-width %Integer; #IMPLIED
+	border-start-width.conditionality %enumConditionality; #IMPLIED
+	border-start-width.length %Text; #IMPLIED
+	border-style %enumLineStyle; #IMPLIED
+	border-top %Text; #IMPLIED
+	border-top-color %Color; #IMPLIED
+	border-top-style %enumLineStyle; #IMPLIED
+	border-top-width %Integer; #IMPLIED
+	border-top-width.conditionality %enumConditionality; #IMPLIED
+	border-top-width.length %Text; #IMPLIED
+	border-top-left-color %Color; #IMPLIED
+	border-top-left-corner-style %enumCornerStyle; #IMPLIED
+	border-top-left-corner-visible %Boolean; #IMPLIED
+	border-top-left-radius %Integer; #IMPLIED
+	border-top-left-style %enumLineStyle; #IMPLIED
+	border-top-left-width %Integer; #IMPLIED
+	border-top-right-color %Color; #IMPLIED
+	border-top-right-corner-style %enumCornerStyle; #IMPLIED
+	border-top-right-corner-visible %Boolean; #IMPLIED
+	border-top-right-radius %Integer; #IMPLIED
+	border-top-right-style %enumLineStyle; #IMPLIED
+	border-top-right-width %Integer; #IMPLIED
+	border-width %Integer; #IMPLIED
+	padding %Text; #IMPLIED
+	padding-after %Text; #IMPLIED
+	padding-after.conditionality %enumConditionality; #IMPLIED
+	padding-after.length %Text; #IMPLIED
+	padding-before %Text; #IMPLIED
+	padding-before.conditionality %enumConditionality; #IMPLIED
+	padding-before.length %Text; #IMPLIED
+	padding-bottom %Text; #IMPLIED
+	padding-bottom.conditionality %enumConditionality; #IMPLIED
+	padding-bottom.length %Text; #IMPLIED
+	padding-end %Text; #IMPLIED
+	padding-end.conditionality %enumConditionality; #IMPLIED
+	padding-end.length %Text; #IMPLIED
+	padding-left %Text; #IMPLIED
+	padding-left.conditionality %enumConditionality; #IMPLIED
+	padding-left.length %Text; #IMPLIED
+	padding-right %Text; #IMPLIED
+	padding-right.conditionality %enumConditionality; #IMPLIED
+	padding-right.length %Text; #IMPLIED
+	padding-start %Text; #IMPLIED
+	padding-start.conditionality %enumConditionality; #IMPLIED
+	padding-start.length %Text; #IMPLIED
+	padding-top %Text; #IMPLIED
+	padding-top.conditionality %enumConditionality; #IMPLIED
+	padding-top.length %Text; #IMPLIED
+">
+<!ATTLIST fo:border-padding-background-props %fo-border-padding-background-props-attributes;>
+
+<!-- union fo:wrappers -->
+<!ENTITY % fo-wrappers-elements "fo:wrapper">
+
+<!-- visibility - Unsupported. -->
+<!-- z-index - Unsupported. -->
+<!ELEMENT fo:visibility-props EMPTY>
+<!ENTITY % fo-visibility-props-attributes "
+	visibility %enumVisibility; #IMPLIED
+	z-index %Text; #IMPLIED
+">
+<!ATTLIST fo:visibility-props %fo-visibility-props-attributes;>
+
+<!-- break-after - Unsupported. -->
+<!-- break-before - Unsupported. -->
+<!-- keep-with-next -->
+<!-- keep-with-next.within-column - Unsupported. -->
+<!-- keep-with-next.within-line - Unsupported. -->
+<!-- keep-with-next.within-page - Unsupported. -->
+<!-- keep-with-previous - Unsupported. -->
+<!-- keep-with-previous.within-column - Unsupported. -->
+<!-- keep-with-previous.within-line - Unsupported. -->
+<!-- keep-with-previous.within-page - Unsupported. -->
+<!-- page-break-after - Unsupported. -->
+<!-- page-break-before -->
+<!ELEMENT fo:keep-and-break-atomic-props EMPTY>
+<!ENTITY % fo-keep-and-break-atomic-props-attributes "
+	break-after %enumTextBreak; #IMPLIED
+	break-before %enumTextBreak; #IMPLIED
+	keep-with-next %enumKeepWith; #IMPLIED
+	keep-with-next.within-column %enumKeepWith; #IMPLIED
+	keep-with-next.within-line %enumKeepWith; #IMPLIED
+	keep-with-next.within-page %enumKeepWith; #IMPLIED
+	keep-with-previous %enumKeepWith; #IMPLIED
+	keep-with-previous.within-column %enumKeepWith; #IMPLIED
+	keep-with-previous.within-line %enumKeepWith; #IMPLIED
+	keep-with-previous.within-page %enumKeepWith; #IMPLIED
+	page-break-after %enumPageBreak; #IMPLIED
+	page-break-before %enumPageBreak; #IMPLIED
+">
+<!ATTLIST fo:keep-and-break-atomic-props %fo-keep-and-break-atomic-props-attributes;>
+
+<!-- tab-stop - Character aligned to. -->
+<!-- tab-align - Alignment of the tab. -->
+<!-- tab-indent - Distance from the left margin. -->
+<!ELEMENT dlg:tab-stop EMPTY>
+<!ATTLIST dlg:tab-stop
+	align-on %Text; #IMPLIED
+	tab-char %Text; #IMPLIED
+	tab-align %enumTabAlign; #IMPLIED
+	tab-indent %Integer; #IMPLIED
+>
+
+<!-- alignment-adjust - Unsupported. -->
+<!-- alignment-baseline - Unsupported. -->
+<!-- baseline-shift - Shift content off the baseline. -->
+<!-- dominant-baseline - Unsupported. -->
+<!-- vertical-align - Unsupported. -->
+<!ELEMENT fo:area-alignment-inline-props EMPTY>
+<!ENTITY % fo-area-alignment-inline-props-attributes "
+	alignment-adjust %Text; #IMPLIED
+	alignment-baseline %enumBaselineAlign; #IMPLIED
+	baseline-shift %Integer; #IMPLIED
+	dominant-baseline %enumBaselineDominant; #IMPLIED
+	vertical-align %Text; #IMPLIED
+">
+<!ATTLIST fo:area-alignment-inline-props %fo-area-alignment-inline-props-attributes;>
+
+<!-- azimuth - Unsupported. -->
+<!-- cue - Unsupported. -->
+<!-- cue-after - Unsupported. -->
+<!-- cue-before - Unsupported. -->
+<!-- elevation - Unsupported. -->
+<!-- pause - Unsupported. -->
+<!-- pause-after - Unsupported. -->
+<!-- pause-before - Unsupported. -->
+<!-- pitch - Unsupported. -->
+<!-- pitch-range - Unsupported. -->
+<!-- play-during - Unsupported. -->
+<!-- richness - Unsupported. -->
+<!-- speak - Unsupported. -->
+<!-- speak-header - Unsupported. -->
+<!-- speak-numeral - Unsupported. -->
+<!-- speak-punctuation - Unsupported. -->
+<!-- speech-rate - Unsupported. -->
+<!-- stress - Unsupported. -->
+<!-- voice-family - Unsupported. -->
+<!-- volume - Unsupported. -->
+<!ELEMENT fo:aural-props EMPTY>
+<!ENTITY % fo-aural-props-attributes "
+	azimuth %Text; #IMPLIED
+	cue %Text; #IMPLIED
+	cue-after %Text; #IMPLIED
+	cue-before %Text; #IMPLIED
+	elevation %Text; #IMPLIED
+	pause %Text; #IMPLIED
+	pause-after %Text; #IMPLIED
+	pause-before %Text; #IMPLIED
+	pitch %Text; #IMPLIED
+	pitch-range %Text; #IMPLIED
+	play-during %Text; #IMPLIED
+	richness %Text; #IMPLIED
+	speak %enumSpeak; #IMPLIED
+	speak-header %enumSpeakHeader; #IMPLIED
+	speak-numeral %enumSpeakNumeral; #IMPLIED
+	speak-punctuation %enumSpeakPunc; #IMPLIED
+	speech-rate %Text; #IMPLIED
+	stress %Text; #IMPLIED
+	voice-family %Text; #IMPLIED
+	volume %Text; #IMPLIED
+">
+<!ATTLIST fo:aural-props %fo-aural-props-attributes;>
+
+<!-- line-height - Leading. -->
+<!-- line-height-shift-adjustment - Unsupported. -->
+<!-- line-height.conditionality - Unsupported. -->
+<!-- line-height.maximum - Unsupported. -->
+<!-- line-height.minimum - Unsupported. -->
+<!-- line-height.optimum - Unsupported. -->
+<!-- line-height.precedence - Unsupported. -->
+<!ELEMENT fo:line-height-props EMPTY>
+<!ENTITY % fo-line-height-props-attributes "
+	line-height %Integer; #IMPLIED
+	line-height-shift-adjustment %enumShiftAdjustment; #IMPLIED
+	line-height.conditionality %enumConditionality; #IMPLIED
+	line-height.maximum %Integer; #IMPLIED
+	line-height.minimum %Integer; #IMPLIED
+	line-height.optimum %Integer; #IMPLIED
+	line-height.precedence %Integer; #IMPLIED
+	line-spacing %enumLineSpaces; #IMPLIED
+">
+<!ATTLIST fo:line-height-props %fo-line-height-props-attributes;>
+
+<!-- union fo:row-group -->
+<!ENTITY % fo-row-group-elements "fo:table-row+ | fo:table-cell+">
+
+<!-- margin - Unsupported. -->
+<!-- margin-after - Unsupported. -->
+<!-- margin-before - Unsupported. -->
+<!-- margin-bottom - Bottom margin. -->
+<!-- margin-end - Unsupported. -->
+<!-- margin-left - Left margin. -->
+<!-- margin-right - Right margin. -->
+<!-- margin-start - Unsupported. -->
+<!-- margin-top - Top margin. -->
+<!ELEMENT fo:margin-props EMPTY>
+<!ENTITY % fo-margin-props-attributes "
+	margin %Integer; #IMPLIED
+	margin-after %Integer; #IMPLIED
+	margin-before %Integer; #IMPLIED
+	margin-bottom %Integer; #IMPLIED
+	margin-end %Integer; #IMPLIED
+	margin-left %Integer; #IMPLIED
+	margin-right %Integer; #IMPLIED
+	margin-start %Integer; #IMPLIED
+	margin-top %Integer; #IMPLIED
+">
+<!ATTLIST fo:margin-props %fo-margin-props-attributes;>
+
+<!-- country - Unsupported. -->
+<!-- hyphenate - Unsupported. -->
+<!-- hyphenation-character - Unsupported. -->
+<!-- hyphenation-push-character-count - Unsupported. -->
+<!-- hyphenation-remain-character-count - Unsupported. -->
+<!-- language - Unsupported. -->
+<!-- script - Unsupported. -->
+<!-- xml_-lang - Unsupported. -->
+<!ELEMENT fo:hyphenation-inline-props EMPTY>
+<!ENTITY % fo-hyphenation-inline-props-attributes "
+	country %Text; #IMPLIED
+	hyphenate %Text; #IMPLIED
+	hyphenation-character %Text; #IMPLIED
+	hyphenation-push-character-count %Text; #IMPLIED
+	hyphenation-remain-character-count %Text; #IMPLIED
+	language %Text; #IMPLIED
+	script %Text; #IMPLIED
+">
+<!ATTLIST fo:hyphenation-inline-props %fo-hyphenation-inline-props-attributes;>
+
+<!-- provisional-distance-between-starts - Unsupported. -->
+<!-- provisional-label-separation - Unsupported. -->
+<!ELEMENT fo:list-props EMPTY>
+<!ENTITY % fo-list-props-attributes "
+	provisional-distance-between-starts %Text; #IMPLIED
+	provisional-label-separation %Text; #IMPLIED
+">
+<!ATTLIST fo:list-props %fo-list-props-attributes;>
+
+<!-- union fo:basic-blocks -->
+<!ENTITY % fo-basic-blocks-elements "fo:block | fo:block-comment | fo:block-container | fo:list-block | fo:table | fo:table-and-caption">
+
+<!-- border-collapse - Unsupported. -->
+<!-- border-separation - Unsupported. -->
+<!-- border-separation-block-progression-dimension - Unsupported. -->
+<!-- border-separation-inline-progression-dimension - Unsupported. -->
+<!-- border-spacing - Unsupported. -->
+<!-- caption-side - Unsupported. -->
+<!-- empty-cells - Unsupported. -->
+<!-- table-layout - Unsupported. -->
+<!-- table-omit-footer-at-break - Unsupported. -->
+<!-- table-omit-header-at-break - Unsupported. -->
+<!ELEMENT fo:table-props EMPTY>
+<!ENTITY % fo-table-props-attributes "
+	border-collapse %Text; #IMPLIED
+	border-separation %Text; #IMPLIED
+	border-separation-block-progression-dimension %Text; #IMPLIED
+	border-separation-inline-progression-dimension %Text; #IMPLIED
+	border-spacing %Text; #IMPLIED
+	caption-side %Text; #IMPLIED
+	empty-cells %Text; #IMPLIED
+	table-layout %Text; #IMPLIED
+	table-omit-footer-at-break %Boolean; #IMPLIED
+	table-omit-header-at-break %Boolean; #IMPLIED
+">
+<!ATTLIST fo:table-props %fo-table-props-attributes;>
+
+<!-- bottom - Unsupported. -->
+<!-- left - Unsupported. -->
+<!-- position - Unsupported. -->
+<!-- relative-position - Unsupported. -->
+<!-- right - Unsupported. -->
+<!-- top - Unsupported. -->
+<!ELEMENT fo:relative-position-props EMPTY>
+<!ENTITY % fo-relative-position-props-attributes "
+	bottom %Text; #IMPLIED
+	left %Text; #IMPLIED
+	position %Text; #IMPLIED
+	relative-position %Text; #IMPLIED
+	right %Text; #IMPLIED
+	top %Text; #IMPLIED
+">
+<!ATTLIST fo:relative-position-props %fo-relative-position-props-attributes;>
+
+<!-- font - Unsupported. -->
+<!-- font-family - Font family. -->
+<!-- font-selection-strategy - Unsupported. -->
+<!-- font-size - Font size (in points). -->
+<!-- font-size-adjust - Unsupported. -->
+<!-- font-stretch - Unsupported. -->
+<!-- font-style - Partially supported: normal or italic. -->
+<!-- font-variant - Unsupported. -->
+<!-- font-weight - Partially supported: normal or bold. -->
+<!ELEMENT fo:font-props EMPTY>
+<!ENTITY % fo-font-props-attributes "
+	font %Text; #IMPLIED
+	font-family %Text; #IMPLIED
+	font-selection-strategy %enumFontSelectionStrategy; #IMPLIED
+	font-size %Integer; #IMPLIED
+	font-size-adjust %Text; #IMPLIED
+	font-stretch %enumFontStretch; #IMPLIED
+	font-style %enumFontStyle; #IMPLIED
+	font-variant %enumFontVariant; #IMPLIED
+	font-weight %enumFontWeight; #IMPLIED
+">
+<!ATTLIST fo:font-props %fo-font-props-attributes;>
+
+<!-- id - Identifier for this element. -->
+<!ELEMENT fo:id-props EMPTY>
+<!ENTITY % fo-id-props-attributes "
+	id %Text; #IMPLIED
+">
+<!ATTLIST fo:id-props %fo-id-props-attributes;>
+
+<!-- union fo:basic-inlines -->
+<!ENTITY % fo-basic-inlines-elements "fo:basic-link | fo:inline | fo:inline-container | fo:leader | 
+														dlg:embedded-object">
+
+<!-- hyphenation-keep - Unsupported. -->
+<!-- hyphenation-ladder-count - Unsupported. -->
+<!ELEMENT fo:hyphenation-block-props EMPTY>
+<!ENTITY % fo-hyphenation-block-props-attributes "
+	%fo-hyphenation-inline-props-attributes;
+	hyphenation-keep %enumKeepHyphenation; #IMPLIED
+	hyphenation-ladder-count %Text; #IMPLIED
+">
+<!ATTLIST fo:hyphenation-block-props %fo-hyphenation-block-props-attributes;>
+
+<!-- keep-together - Force lines to stay together? -->
+<!-- keep-together-within-column - Unsupported. -->
+<!-- keep-together-within-line - Unsupported. -->
+<!-- keep-together-within-page - Unsupported. -->
+<!-- page-break-inside - Unsupported. -->
+<!ELEMENT fo:keep-and-break-inline-props EMPTY>
+<!ENTITY % fo-keep-and-break-inline-props-attributes "
+	%fo-keep-and-break-atomic-props-attributes;
+	keep-together %enumKeepWith; #IMPLIED
+	keep-together-within-column %enumKeepWith; #IMPLIED
+	keep-together-within-line %enumKeepWith; #IMPLIED
+	keep-together-within-page %enumKeepWith; #IMPLIED
+	page-break-inside %enumBreakInside; #IMPLIED
+">
+<!ATTLIST fo:keep-and-break-inline-props %fo-keep-and-break-inline-props-attributes;>
+
+<!-- union fo:out-of-lines -->
+<!ENTITY % fo-out-of-lines-elements "fo:footnote | fo:float | fo:cross-reference | fo:bookmark | dlg:table-of-contents-entry | dlg:index-entry | dlg:internal-link">
+
+<!-- border-after-precedence - Unsupported. -->
+<!-- border-before-precedence - Unsupported. -->
+<!-- border-end-precedence - Unsupported. -->
+<!-- border-start-precedence - Unsupported. -->
+<!ELEMENT fo:border-precedence-props EMPTY>
+<!ENTITY % fo-border-precedence-props-attributes "
+	border-after-precedence %Text; #IMPLIED
+	border-before-precedence %Text; #IMPLIED
+	border-end-precedence %Text; #IMPLIED
+	border-start-precedence %Text; #IMPLIED
+">
+<!ATTLIST fo:border-precedence-props %fo-border-precedence-props-attributes;>
+
+<!-- absolute-position - Unsupported. -->
+<!ELEMENT fo:absolute-or-relative-position-props EMPTY>
+<!ENTITY % fo-absolute-or-relative-position-props-attributes "
+	%fo-relative-position-props-attributes;
+	absolute-position %enumPosition; #IMPLIED
+">
+<!ATTLIST fo:absolute-or-relative-position-props %fo-absolute-or-relative-position-props-attributes;>
+
+<!-- direction - Unsupported. -->
+<!-- last-line-end-indent - Unsupported. -->
+<!-- line-stacking-strategy - Unsupported. -->
+<!-- linefeed-treatment - Unsupported. -->
+<!-- text-align - How is the inline content of this block to be aligned? -->
+<!-- text-align-last - Unsupported. -->
+<!-- text-indent - First line indentation (negative for hanging indent). -->
+<!-- unicode-bidi - Unsupported. -->
+<!-- white-space - Unsupported. -->
+<!-- white-space-collapse - Unsupported. -->
+<!-- white-space-treatment - Unsupported. -->
+<!-- wrap-option - Unsupported. -->
+<!ELEMENT fo:line-props EMPTY>
+<!ENTITY % fo-line-props-attributes "
+	direction %enumDirection; #IMPLIED
+	last-line-end-indent %Integer; #IMPLIED
+	line-stacking-strategy %enumLineStackingStrategy; #IMPLIED
+	linefeed-treatment %enumLinefeedTreatment; #IMPLIED
+	text-align %enumAlignText; #IMPLIED
+	text-align-last %enumTextAlignLast; #IMPLIED
+	text-indent %Integer; #IMPLIED
+	unicode-bidi %enumUnicodeBidi; #IMPLIED
+	white-space %enumWhiteSpace; #IMPLIED
+	white-space-collapse %Boolean; #IMPLIED
+	white-space-treatment %enumWhiteSpaceTreatment; #IMPLIED
+	wrap-option %enumWrapOption; #IMPLIED
+">
+<!ATTLIST fo:line-props %fo-line-props-attributes;>
+
+<!-- clip - Unsupported. -->
+<!-- display-align - How is the area vertically aligned? -->
+<!-- overflow - Unsupported. -->
+<!-- reference-orientation - Unsupported. -->
+<!-- writing-mode - Unsupported. -->
+<!ELEMENT fo:area-props EMPTY>
+<!ENTITY % fo-area-props-attributes "
+	clip %Text; #IMPLIED
+	display-align %enumAlignBlock; #IMPLIED
+	overflow %enumOverflow; #IMPLIED
+	reference-orientation %enumOrientation; #IMPLIED
+	writing-mode %enumWritingMode; #IMPLIED
+">
+<!ATTLIST fo:area-props %fo-area-props-attributes;>
+
+<!-- leader-alignment - Unsupported. -->
+<!-- leader-length - Unsupported. -->
+<!-- leader-length.maximum - Unsupported. -->
+<!-- leader-length.minimum - Unsupported. -->
+<!-- leader-length.optimum - Unsupported. -->
+<!-- leader-pattern - Unsupported. -->
+<!-- leader-pattern-width - Unsupported. -->
+<!-- rule-style - Unsupported. -->
+<!-- rule-thickness - Unsupported. -->
+<!ELEMENT fo:leader-props EMPTY>
+<!ENTITY % fo-leader-props-attributes "
+	leader-alignment %enumLeaderAlignment; #IMPLIED
+	leader-length %Text; #IMPLIED
+	leader-length.maximum %Text; #IMPLIED
+	leader-length.minimum %Text; #IMPLIED
+	leader-length.optimum %Text; #IMPLIED
+	leader-pattern %enumLeaderPattern; #IMPLIED
+	leader-pattern-width %Text; #IMPLIED
+	rule-style %enumRuleStyle; #IMPLIED
+	rule-thickness %Text; #IMPLIED
+">
+<!ATTLIST fo:leader-props %fo-leader-props-attributes;>
+
+<!-- clear - Unsupported. -->
+<!-- float - Unsupported. -->
+<!-- intrusion-displace - Unsupported. -->
+<!ELEMENT fo:float-props EMPTY>
+<!ENTITY % fo-float-props-attributes "
+	clear %enumClear; #IMPLIED
+	float %enumFloat; #IMPLIED
+	intrusion-displace %enumIntrusionDisplace; #IMPLIED
+">
+<!ATTLIST fo:float-props %fo-float-props-attributes;>
+
+<!-- union fo:blocks -->
+<!ENTITY % fo-blocks-elements "%fo-basic-blocks-elements; | %fo-out-of-lines-elements; | %fo-wrappers-elements;">
+
+<!-- color-profile-name - Name used to refer to this color. -->
+<!-- rendering-intent - Unsupported. -->
+<!-- src - ICC color function defining the color. -->
+<!ELEMENT fo:color-profile EMPTY>
+<!ATTLIST fo:color-profile 
+	color-profile-name %Text; #IMPLIED
+	rendering-intent %enumRenderingIntent; #IMPLIED
+	src %Text; #IMPLIED
+>
+
+<!-- block-progression-dimension - Unsupported. -->
+<!-- block-progression-dimension.maximum - Unsupported. -->
+<!-- block-progression-dimension.minimum - Unsupported. -->
+<!-- block-progression-dimension.optimum - Unsupported. -->
+<!-- height - Box height. -->
+<!-- inline-progression-dimension - Unsupported. -->
+<!-- inline-progression-dimension.maximum - Unsupported. -->
+<!-- inline-progression-dimension.minimum - Unsupported. -->
+<!-- inline-progression-dimension.optimum - Unsupported. -->
+<!-- max-height - Unsupported. -->
+<!-- max-width - Unsupported. -->
+<!-- min-height - Unsupported. -->
+<!-- min-width - Unsupported. -->
+<!-- width - Box width. -->
+<!ELEMENT fo:box-size-props EMPTY>
+<!ENTITY % fo-box-size-props-attributes "
+	block-progression-dimension %Text; #IMPLIED
+	block-progression-dimension.maximum %Text; #IMPLIED
+	block-progression-dimension.minimum %Text; #IMPLIED
+	block-progression-dimension.optimum %Text; #IMPLIED
+	height %Integer; #IMPLIED
+	inline-progression-dimension %Text; #IMPLIED
+	inline-progression-dimension.maximum %Text; #IMPLIED
+	inline-progression-dimension.minimum %Text; #IMPLIED
+	inline-progression-dimension.optimum %Text; #IMPLIED
+	max-height %Integer; #IMPLIED
+	max-width %Integer; #IMPLIED
+	min-height %Integer; #IMPLIED
+	min-width %Integer; #IMPLIED
+	width %Integer; #IMPLIED
+">
+<!ATTLIST fo:box-size-props %fo-box-size-props-attributes;>
+
+<!-- orphans - Minimum number of lines needed at bottom of a page. -->
+<!-- widows - Minimum number of lines needed at top of a page. -->
+<!ELEMENT fo:keep-and-break-block-props EMPTY>
+<!ENTITY % fo-keep-and-break-block-props-attributes "
+	%fo-keep-and-break-inline-props-attributes;
+	orphans %Integer; #IMPLIED
+	widows %Integer; #IMPLIED
+">
+<!ATTLIST fo:keep-and-break-block-props %fo-keep-and-break-block-props-attributes;>
+
+<!-- end-indent - Right indent. -->
+<!-- space-after - Space after this area. -->
+<!-- space-after.conditionality - Unsupported. -->
+<!-- space-after.maximum - Unsupported. -->
+<!-- space-after.minimum - Unsupported. -->
+<!-- space-after.optimum - Unsupported. -->
+<!-- space-after.precedence - Unsupported. -->
+<!-- space-before - Space before this area. -->
+<!-- space-before.conditionality - Unsupported. -->
+<!-- space-before.maximum - Unsupported. -->
+<!-- space-before.minimum - Unsupported. -->
+<!-- space-before.optimum - Unsupported. -->
+<!-- space-before.precedence - Unsupported. -->
+<!-- start-indent - Left indent. -->
+<!ELEMENT fo:margin-block-props EMPTY>
+<!ENTITY % fo-margin-block-props-attributes "
+	%fo-margin-props-attributes;
+	end-indent %Integer; #IMPLIED
+	space-after %Integer; #IMPLIED
+	space-after.conditionality %enumConditionality; #IMPLIED
+	space-after.maximum %Integer; #IMPLIED
+	space-after.minimum %Integer; #IMPLIED
+	space-after.optimum %Integer; #IMPLIED
+	space-after.precedence %Integer; #IMPLIED
+	space-before %Integer; #IMPLIED
+	space-before.conditionality %enumConditionality; #IMPLIED
+	space-before.maximum %Integer; #IMPLIED
+	space-before.minimum %Integer; #IMPLIED
+	space-before.optimum %Integer; #IMPLIED
+	space-before.precedence %Integer; #IMPLIED
+	start-indent %Integer; #IMPLIED
+	start-indent-use-default %Boolean; #IMPLIED
+">
+<!ATTLIST fo:margin-block-props %fo-margin-block-props-attributes;>
+
+<!-- union fo:mixed-level -->
+<!ENTITY % fo-mixed-level-elements "#PCDATA | %fo-basic-inlines-elements; | %fo-basic-blocks-elements; | %fo-out-of-lines-elements; | %fo-wrappers-elements; | dlg:live | dlg:variable-use | dlg:column-break | dlg:text-rule">
+
+<!ELEMENT fo:declarations ( fo:color-profile*, dlg:tab-ruler*, dlg:variables?, dlg:container-label*, dlg:cascading-style-sheet*, dlg:usage-rule*, dlg:named-flow-frame*, dlg:metadata-decls*, dlg:hyperlink-anchor* )>
+
+<!-- glyph-orientation-horizontal - Unsupported. -->
+<!-- glyph-orientation-vertical - Unsupported. -->
+<!-- letter-spacing - Spacing behavior between text characters. -->
+<!-- letter-spacing.conditionality - Unsupported. -->
+<!-- letter-spacing.maximum - Unsupported. -->
+<!-- letter-spacing.minimum - Unsupported. -->
+<!-- letter-spacing.optimum - Unsupported. -->
+<!-- letter-spacing.precedence - Unsupported. -->
+<!-- score-spaces - Unsupported. -->
+<!-- suppress-at-line-break - Unsupported. -->
+<!-- text-altitude - Unsupported. -->
+<!-- text-decoration - Partially supported: none, underline or line-through. -->
+<!-- text-depth - Unsupported. -->
+<!-- text-shadow - Unsupported. -->
+<!-- text-transform - Unsupported. -->
+<!-- treat-as-word-space - Unsupported. -->
+<!-- word-spacing - Unsupported. -->
+<!-- word-spacing.conditionality - Unsupported. -->
+<!-- word-spacing.maximum - Unsupported. -->
+<!-- word-spacing.minimum - Unsupported. -->
+<!-- word-spacing.optimum - Unsupported. -->
+<!-- word-spacing.precedence - Unsupported. -->
+<!ELEMENT fo:character-props EMPTY>
+<!ENTITY % fo-character-props-attributes "
+	%fo-font-props-attributes;
+	%fo-line-height-props-attributes;
+	glyph-orientation-horizontal %enumOrientation; #IMPLIED
+	glyph-orientation-vertical %enumOrientation; #IMPLIED
+	is-comment %Boolean; #IMPLIED
+	letter-spacing %Integer; #IMPLIED
+	letter-spacing.conditionality %enumConditionality; #IMPLIED
+	letter-spacing.maximum %Integer; #IMPLIED
+	letter-spacing.minimum %Integer; #IMPLIED
+	letter-spacing.optimum %Integer; #IMPLIED
+	letter-spacing.precedence %Integer; #IMPLIED
+	score-spaces %Boolean; #IMPLIED
+	supersub %enumSuperSub; #IMPLIED
+	suppress-at-line-break %enumSuppressAtLineBreak; #IMPLIED
+	text-altitude %Text; #IMPLIED
+	text-decoration %bitsTextDecoration; #IMPLIED
+	text-depth %Text; #IMPLIED
+	text-shadow %Text; #IMPLIED
+	text-transform %enumTextTransform; #IMPLIED
+	treat-as-word-space %enumTreatAsWordSpace; #IMPLIED
+	word-spacing %Integer; #IMPLIED
+	word-spacing.conditionality %enumConditionality; #IMPLIED
+	word-spacing.maximum %Integer; #IMPLIED
+	word-spacing.minimum %Integer; #IMPLIED
+	word-spacing.optimum %Integer; #IMPLIED
+	word-spacing.precedence %Integer; #IMPLIED
+">
+<!ATTLIST fo:character-props %fo-character-props-attributes;>
+
+<!-- union fo:inlines -->
+<!ENTITY % fo-inlines-elements "#PCDATA | %fo-basic-inlines-elements; | %fo-out-of-lines-elements; | %fo-wrappers-elements;">
+
+<!-- union fo:block-inlines -->
+<!ENTITY % fo-block-inlines-elements "#PCDATA | %fo-basic-blocks-elements; | 				%fo-basic-inlines-elements; | %fo-out-of-lines-elements; | %fo-wrappers-elements; | fo:initial-property-set | dlg:tab-ruler">
+
+<!ELEMENT fo:empty-inline-props EMPTY>
+<!ENTITY % fo-empty-inline-props-attributes "
+	%fo-accessibility-props-attributes;
+	%fo-area-alignment-inline-props-attributes;
+	%fo-aural-props-attributes;
+	%fo-border-padding-background-props-attributes;
+	%fo-character-props-attributes;
+	%fo-hyphenation-inline-props-attributes;
+	%fo-id-props-attributes;
+	%fo-relative-position-props-attributes;
+	%fo-visibility-props-attributes;
+	color %Color; #IMPLIED
+">
+<!ATTLIST fo:empty-inline-props %fo-empty-inline-props-attributes;>
+
+<!ELEMENT fo:initial-property-set EMPTY>
+<!ATTLIST fo:initial-property-set 
+	%fo-empty-inline-props-attributes;
+>
+
+<!-- space-end - Unsupported. -->
+<!-- space-end.conditionality - Unsupported. -->
+<!-- space-end.maximum - Unsupported. -->
+<!-- space-end.minimum - Unsupported. -->
+<!-- space-end.optimum - Unsupported. -->
+<!-- space-end.precedence - Unsupported. -->
+<!-- space-start - Unsupported. -->
+<!-- space-start.conditionality - Unsupported. -->
+<!-- space-start.maximum - Unsupported. -->
+<!-- space-start.minimum - Unsupported. -->
+<!-- space-start.optimum - Unsupported. -->
+<!-- space-start.precedence - Unsupported. -->
+<!ELEMENT fo:margin-inline-props EMPTY>
+<!ENTITY % fo-margin-inline-props-attributes "
+	%fo-margin-block-props-attributes;
+	space-end %Integer; #IMPLIED
+	space-end.conditionality %enumConditionality; #IMPLIED
+	space-end.maximum %Integer; #IMPLIED
+	space-end.minimum %Integer; #IMPLIED
+	space-end.optimum %Integer; #IMPLIED
+	space-end.precedence %Integer; #IMPLIED
+	space-start %Integer; #IMPLIED
+	space-start.conditionality %enumConditionality; #IMPLIED
+	space-start.maximum %Integer; #IMPLIED
+	space-start.minimum %Integer; #IMPLIED
+	space-start.optimum %Integer; #IMPLIED
+	space-start.precedence %Integer; #IMPLIED
+">
+<!ATTLIST fo:margin-inline-props %fo-margin-inline-props-attributes;>
+
+<!-- color - Color. -->
+<!-- relative-align - Unsupported. -->
+<!-- span - Unsupported. -->
+<!ELEMENT fo:inheritable-props EMPTY>
+<!ENTITY % fo-inheritable-props-attributes "
+	%fo-absolute-or-relative-position-props-attributes;
+	%fo-accessibility-props-attributes;
+	%fo-area-alignment-inline-props-attributes;
+	%fo-area-props-attributes;
+	%fo-aural-props-attributes;
+	%fo-border-padding-background-props-attributes;
+	%fo-border-precedence-props-attributes;
+	%fo-box-size-props-attributes;
+	%fo-character-props-attributes;
+	%fo-float-props-attributes;
+	%fo-hyphenation-block-props-attributes;
+	%fo-keep-and-break-block-props-attributes;
+	%fo-leader-props-attributes;
+	%fo-line-props-attributes;
+	%fo-list-props-attributes;
+	%fo-margin-inline-props-attributes;
+	%fo-table-props-attributes;
+	%fo-visibility-props-attributes;
+	color %Color; #IMPLIED
+	relative-align %enumRelativeAlign; #IMPLIED
+	span %enumSpan; #IMPLIED
+	variable-content %Boolean; #IMPLIED
+	hyperlink %Text; #IMPLIED
+	hyperlink-new-window %Boolean; #IMPLIED
+">
+<!ATTLIST fo:inheritable-props %fo-inheritable-props-attributes;>
+
+<!ELEMENT fo:table-header ( %fo-row-group-elements; )>
+<!ATTLIST fo:table-header 
+	%fo-id-props-attributes;
+	%fo-inheritable-props-attributes;
+>
+
+<!ELEMENT fo:wrapper ( %fo-mixed-level-elements; )*>
+<!ATTLIST fo:wrapper 
+	%fo-id-props-attributes;
+	%fo-inheritable-props-attributes;
+>
+
+<!ELEMENT fo:table-row ( fo:table-cell )+>
+<!ATTLIST fo:table-row 
+	%fo-id-props-attributes;
+	%fo-inheritable-props-attributes;
+	fixed-height %Boolean; #IMPLIED
+  adjustable-cell-width %Boolean; #IMPLIED
+	usage-rule %Reference; #IMPLIED
+	row-type %enumAutomatedRowType; #IMPLIED
+	auto-row-column-flow %enumAutoRowColumnFlow; #IMPLIED
+	auto-row-filter %Text; #IMPLIED
+	auto-row-grouped %Boolean; #IMPLIED
+	auto-row-grouped-mode %Integer; #IMPLIED
+	auto-row-include-higher %enumIncludeHigher; #IMPLIED
+	auto-row-include-level %Integer; #IMPLIED
+	auto-row-level %Integer; #IMPLIED
+	auto-row-num-div-repeat-rows %Integer; #IMPLIED
+	auto-row-num-repeat %Integer; #IMPLIED
+	auto-row-overlap %enumAutomatedRowOverlap; #IMPLIED
+	auto-row-page-begin %Boolean; #IMPLIED
+	auto-row-process %enumAutomatedRowProcess; #IMPLIED
+	auto-row-ref-var %Reference; #IMPLIED
+	auto-row-repeat-headers %Boolean; #IMPLIED
+	auto-row-repeat-var-count %Integer; #IMPLIED
+	auto-row-section-begin %Boolean; #IMPLIED
+	auto-row-section-max-rows %Integer; #IMPLIED
+	auto-row-section-name %Text; #IMPLIED
+	auto-row-section-orphan %Integer; #IMPLIED
+	auto-row-section-ref-var %Reference; #IMPLIED
+	auto-row-section-use %enumSectionUses; #IMPLIED
+	auto-row-serpertine-cells %Integer; #IMPLIED
+	auto-row-special-row-props %enumRowSpecialProps; #IMPLIED
+>
+
+<!ELEMENT fo:table-footer ( %fo-row-group-elements; )>
+<!ATTLIST fo:table-footer 
+	%fo-id-props-attributes;
+	%fo-inheritable-props-attributes;
+>
+
+<!-- flow-name - Unsupported. -->
+<!ELEMENT fo:flow-props EMPTY>
+<!ENTITY % fo-flow-props-attributes "
+	%fo-id-props-attributes;
+	%fo-inheritable-props-attributes;
+	flow-name %Text; #IMPLIED
+">
+<!ATTLIST fo:flow-props %fo-flow-props-attributes;>
+
+<!ELEMENT fo:block-props EMPTY>
+<!ENTITY % fo-block-props-attributes "
+	usage-rule %Reference; #IMPLIED
+	embed-clear-floating-objects %enumClearFloatingObjects; #IMPLIED
+	adjust-space-above-text %Boolean; #IMPLIED
+	%fo-id-props-attributes;
+	%fo-inheritable-props-attributes;
+	%dlg-meta-props-attributes;
+">
+<!ATTLIST fo:block-props %fo-block-props-attributes;>
+
+<!ELEMENT fo:inline-props EMPTY>
+<!ENTITY % fo-inline-props-attributes "
+	%fo-id-props-attributes;
+	%fo-inheritable-props-attributes;
+">
+<!ATTLIST fo:inline-props %fo-inline-props-attributes;>
+
+<!ELEMENT fo:leader ( %fo-inlines-elements; )*>
+<!ATTLIST fo:leader 
+	%fo-inline-props-attributes;
+>
+
+<!ELEMENT fo:table-body ( %fo-row-group-elements; )>
+<!ATTLIST fo:table-body 
+	%fo-id-props-attributes;
+	%fo-inheritable-props-attributes;
+>
+
+<!-- column-number - The column number of the cells governed by this column. -->
+<!-- column-width - The width of this column. -->
+<!-- number-columns-repeated - Unsupported. -->
+<!-- number-columns-spanned - Unsupported. -->
+<!ELEMENT fo:table-column EMPTY>
+<!ATTLIST fo:table-column 
+	%fo-inheritable-props-attributes;
+	column-number %Integer; #IMPLIED
+	column-width %Integer; #REQUIRED
+	number-columns-repeated %Integer; #IMPLIED
+	number-columns-spanned %Integer; #IMPLIED
+	usage-rule %Reference; #IMPLIED
+>
+
+<!-- column-number - Unsupported. -->
+<!-- ends-row - Unsupported. -->
+<!-- number-columns-spanned - How many columns does this cell span? -->
+<!-- number-rows-spanned - Unsupported. -->
+<!-- starts-row - Unsupported. -->
+<!ELEMENT fo:table-cell (  dlg:conditional-colors?, (%fo-blocks-elements; )*)>
+<!ATTLIST fo:table-cell 
+	%fo-block-props-attributes;
+	column-number %Integer; #IMPLIED
+	ends-row %Boolean; #IMPLIED
+	number-columns-spanned %Integer; #IMPLIED
+	number-rows-spanned %Integer; #IMPLIED
+	starts-row %Boolean; #IMPLIED
+>
+
+<!ELEMENT fo:block-container ( %fo-blocks-elements; )+>
+<!ATTLIST fo:block-container 
+	%fo-block-props-attributes;
+>
+
+<!ELEMENT fo:float ( %fo-blocks-elements; )+>
+<!ATTLIST fo:float 
+	%fo-block-props-attributes;
+>
+
+<!ELEMENT fo:table-caption ( %fo-blocks-elements; )+>
+<!ATTLIST fo:table-caption 
+	%fo-block-props-attributes;
+>
+
+<!-- destination-placement-offset - Unsupported. -->
+<!-- external-destination - Unsupported. -->
+<!-- indicate-destination - Unsupported. -->
+<!-- internal-destination - Unsupported. -->
+<!-- show-destination - Unsupported. -->
+<!-- target-presentation-context - Unsupported. -->
+<!-- target-processing-context - Unsupported. -->
+<!-- target-stylesheet - Unsupported. -->
+<!ELEMENT fo:basic-link ( %fo-mixed-level-elements; )*>
+<!ATTLIST fo:basic-link 
+	%fo-inline-props-attributes;
+	%dlg-meta-props-attributes;
+	destination-placement-offset %Text; #IMPLIED
+	external-destination %Text; #IMPLIED
+	indicate-destination %Boolean; #IMPLIED
+	internal-destination %Text; #IMPLIED
+	show-destination %Text; #IMPLIED
+	target-presentation-context %Text; #IMPLIED
+	target-processing-context %Text; #IMPLIED
+	target-stylesheet %Text; #IMPLIED
+	link-type %enumHyperlinkType; #IMPLIED
+	variable-hyperlink %Reference; #IMPLIED
+	variable-hyperlink-ndx-value %Integer; #IMPLIED
+	variable-hyperlink-ndx-var %Reference; #IMPLIED
+>
+
+<!ELEMENT fo:list-item-label ( %fo-blocks-elements; )+>
+<!ATTLIST fo:list-item-label 
+	%fo-block-props-attributes;
+>
+
+<!ELEMENT fo:list-item-body ( %fo-blocks-elements; )+>
+<!ATTLIST fo:list-item-body 
+	%fo-block-props-attributes;
+>
+
+<!-- list-type - List type -->
+<!ELEMENT dlg:tab-ruler ( dlg:tab-stop )*>
+<!ATTLIST dlg:tab-ruler 
+	%fo-id-props-attributes;
+	bullet-font %Integer; #IMPLIED
+	bullet-font-size %Integer; #IMPLIED
+	bold-font %Boolean; #IMPLIED
+	color-bullet %Text; #IMPLIED
+	default-tab %Integer; #IMPLIED
+	font-family %Text; #IMPLIED
+	hierarchical %Boolean; #IMPLIED
+	list-type %enumListType; #IMPLIED
+	number-type %enumNumberTypes; #IMPLIED
+	number-value %Integer; #IMPLIED
+	number-indent %Integer; #IMPLIED
+	number-color %Integer; #IMPLIED
+	number-string %Text; #IMPLIED
+	user-set-color %Boolean; #IMPLIED
+	user-set-number %enumNumberCountMode; #IMPLIED
+	user-set-type %Boolean; #IMPLIED
+>
+
+<!-- tab-ruler - Identifier of the tab ruler being used (currently numeric only). -->
+<!ELEMENT fo:block (%fo-block-inlines-elements; )* >
+<!ATTLIST fo:block 
+	%fo-block-props-attributes;
+	tab-ruler %Integer; #IMPLIED
+>
+
+<!ELEMENT fo:block-comment (%fo-block-inlines-elements; )* >
+<!ATTLIST fo:block-comment
+	%fo-block-props-attributes;
+	tab-ruler %Integer; #IMPLIED
+>
+
+<!ELEMENT fo:list-block ( fo:list-item )+>
+<!ATTLIST fo:list-block 
+	%fo-block-props-attributes;
+>
+
+<!ELEMENT fo:flow ( dlg:conditional-colors?,  (%fo-blocks-elements; )*)>
+<!ATTLIST fo:flow 
+	%fo-flow-props-attributes;
+>
+
+<!ELEMENT fo:table ( fo:table-column*, fo:table-header?, fo:table-footer?, fo:table-body+ )>
+<!ATTLIST fo:table 
+	%fo-block-props-attributes;
+>
+
+<!ELEMENT fo:inline ( %fo-mixed-level-elements; )*>
+<!ATTLIST fo:inline 
+	%fo-inline-props-attributes;
+>
+
+<!ELEMENT fo:footnote-body ( %fo-blocks-elements; )+>
+<!ATTLIST fo:footnote-body 
+	%fo-block-props-attributes;
+>
+
+<!ELEMENT fo:inline-container ( %fo-blocks-elements; )+>
+<!ATTLIST fo:inline-container 
+	%fo-inline-props-attributes;
+>
+
+<!ELEMENT fo:list-item ( fo:list-item-body?, fo:list-item-label? )>
+<!ATTLIST fo:list-item 
+	%fo-block-props-attributes;
+>
+
+<!ELEMENT fo:table-and-caption ( fo:table-caption?, fo:table? )>
+<!ATTLIST fo:table-and-caption 
+	%fo-block-props-attributes;
+>
+
+<!ELEMENT fo:footnote ( fo:inline?, fo:footnote-body? )>
+<!ATTLIST fo:footnote 
+	%fo-block-props-attributes;
+	content %enumFootnoteContent; #IMPLIED
+	identifier-placement %enumFootnoteIndicatorPlacement; #IMPLIED
+	include %enumFootnoteInclude; #IMPLIED
+	include-variable %Reference; #IMPLIED
+	message %Reference; #IMPLIED
+	numbering-method %enumFootnoteNumber; #IMPLIED
+	placement %enumFootnotePlacement; #IMPLIED
+	variable %Reference; #IMPLIED
+>
+
+<!ELEMENT fo:cross-reference EMPTY>
+<!ATTLIST fo:cross-reference
+	populate %enumCrossRefPopulate; #IMPLIED
+	variable %Reference; #IMPLIED
+>
+
+<!ELEMENT fo:bookmark EMPTY>
+<!ATTLIST fo:bookmark
+	source %enumEntryText; #IMPLIED
+	text %Text; #IMPLIED
+	variable %Reference; #IMPLIED
+>
+
+<!ELEMENT dlg:table-of-contents-entry EMPTY>
+<!ATTLIST dlg:table-of-contents-entry
+	level %Integer; #IMPLIED
+	source %enumEntryText; #IMPLIED
+	text %Text; #IMPLIED
+	variable %Reference; #IMPLIED
+>
+
+<!ELEMENT dlg:index-entry-level EMPTY>
+<!ATTLIST dlg:index-entry-level
+	source %enumEntryText; #IMPLIED
+	text %Text; #IMPLIED
+	variable %Reference; #IMPLIED
+>
+
+<!ELEMENT dlg:index-entry (dlg:index-entry-level*)>
+<!ATTLIST dlg:index-entry
+	custom-heading %enumEntryText; #IMPLIED
+	custom-heading-text %Text; #IMPLIED
+	custom-heading-variable %Reference; #IMPLIED
+>
+
+<!ELEMENT dlg:internal-link EMPTY>
+<!ATTLIST dlg:internal-link
+	hyperlink-anchor %Reference; #IMPLIED
+>
+
+<!-- Exstream Entities =========================================== -->
+
+<!ELEMENT dxf:variable EMPTY>
+<!ATTLIST dxf:variable
+                array %Boolean; #IMPLIED
+                default-value %Text; #IMPLIED
+                description %Text; #IMPLIED
+                design %Text; #IMPLIED
+                format %Integer; #IMPLIED
+                name %Text; #IMPLIED
+                oid %Integer; #IMPLIED
+                type %enumDataType; #IMPLIED
+>
+
+<!-- Basic tag taken from DDS -->
+
+<!ELEMENT dlg:name (#PCDATA) >
+<!ELEMENT dlg:description (#PCDATA) >
+<!ELEMENT dlg:basic (dlg:name?, dlg:description?)>
+<!ATTLIST dlg:basic
+				folder %Reference; #IMPLIED
+				oid %Integer; #IMPLIED
+				xmlns %Text; #IMPLIED
+>
+
+<!ENTITY % main-object-attributes "
+	schemaVersion %Number; #IMPLIED
+	xmlns:dlg %Text; #IMPLIED
+	xmlns:dxf %Text; #IMPLIED
+	xmlns:fo %Text; #IMPLIED
+">
+
+<!ELEMENT dlg:default-value EMPTY>
+<!ATTLIST dlg:default-value
+				language %Reference; #IMPLIED
+				value %Text; #REQUIRED
+>
+
+<!ELEMENT dlg:lookup-string EMPTY>
+<!ATTLIST dlg:lookup-string
+				 abbrev %Text; #IMPLIED
+				 language %Reference; #IMPLIED
+				 string-value %Text; #IMPLIED
+>
+
+<!ELEMENT dlg:variable (dlg:basic, dlg:default-value*, dlg:lookup-string*)>
+
+<!ATTLIST dlg:variable
+				application %Reference; #IMPLIED
+				array-max %Integer; #IMPLIED
+				array-reset %enumArrayReset; #IMPLIED
+				array-type %enumArrayType; #IMPLIED
+				auto-lookup %Boolean; #IMPLIED
+				can-set-system-var %Boolean; #IMPLIED
+				code-trace-level %enumCodeTrace; #IMPLIED
+				compute-section-name %Text; #IMPLIED
+				compute-time %enumComputeTime; #IMPLIED
+				compute-time-post-sort %enumComputeTime; #IMPLIED
+				const %Boolean; #IMPLIED
+				data-type %enumDataType; #IMPLIED
+				decimal %Text; #IMPLIED
+				display-string %Text; #IMPLIED
+				file-only-ref %Boolean; #IMPLIED
+				format %Integer; #IMPLIED
+				format-string %Text; #IMPLIED
+				format-zero %Boolean; #IMPLIED
+				formula %Text; #IMPLIED
+				full-name %Text; #IMPLIED
+				import-has-vars %Boolean; #IMPLIED
+				import-keep %Integer; #IMPLIED
+				import-type %enumImportType; #IMPLIED
+				import-unique %Boolean; #IMPLIED
+				is-a-formula %Boolean; #IMPLIED
+				language-dependent %Boolean; #IMPLIED
+				late-compose %Boolean; #IMPLIED
+				leading-zero %Boolean; #IMPLIED
+				live-caption-text %Text; #IMPLIED
+				live-custom-options %Integer; #IMPLIED
+				live-exclude-data-sheet %Boolean; #IMPLIED
+				live-form-mask %Text; #IMPLIED
+				live-interview %Boolean; #IMPLIED
+				live-select-max %Integer; #IMPLIED
+				live-select-min %Integer; #IMPLIED
+				live-selection %enumLiveSelection; #IMPLIED
+				lookup-action %enumLookupAction; #IMPLIED
+				lookup-key %Reference; #IMPLIED
+				lookup-out %Reference; #IMPLIED
+				lookup-type %enumLookupType; #IMPLIED
+				lookups-sorted %Boolean; #IMPLIED
+				multi-valued %Boolean; #IMPLIED
+				neg-format %enumNegativeFormat; #IMPLIED
+				no-break %Boolean; #IMPLIED
+				no-convert %Boolean; #IMPLIED
+				num-digits %Integer; #IMPLIED
+				pdf-page-num %Text; #IMPLIED
+				production-placeholder-connector %Reference; #IMPLIED
+				reset-name %Text; #IMPLIED
+				show-to-users %enumAllowedVariableUse; #IMPLIED
+				test-placeholder-connector %Reference; #IMPLIED
+				thousands %Text; #IMPLIED
+				uses-checksum-system-vars %Boolean; #IMPLIED
+				validate1 %Text; #IMPLIED
+				validate2 %Text; #IMPLIED
+				validate-action %enumValidateAction; #IMPLIED
+				validate-function %Reference; #IMPLIED
+				validate-type %enumValidateType; #IMPLIED
+				var-calc-method %enumVariableCalcMethod; #IMPLIED
+				watch-level %enumWatchLevel; #IMPLIED
+				web-verse-placeholder-type %enumWebVersePlaceholderType; #IMPLIED
+				web-verse-scope %enumWebVerseScope; #IMPLIED
+				zero-string %Text; #IMPLIED
+>
+
+<!-- union dxf-or-dlg-variable -->
+<!ENTITY % dxf-or-dlg-variable "dxf:variable | dlg:variable">
+
+<!ELEMENT dlg:variables ( %dxf-or-dlg-variable; )* >
+
+<!ELEMENT dlg:named-flow-frame (dlg:basic) >
+
+<!ELEMENT dlg:metadata-decls ( dlg:basic ) >
+<!ATTLIST dlg:metadata-decls
+				default-value %Text; #IMPLIED
+				default-value-variable %Reference; #IMPLIED
+				no-value %Boolean; #IMPLIED
+>
+
+<!ELEMENT dlg:content (#PCDATA) >
+
+<!ELEMENT dlg:usage-rule ( dlg:basic?, dlg:content )>
+<!ATTLIST dlg:usage-rule
+				advanced %Boolean; #IMPLIED
+				code-trace %enumCodeTrace;#IMPLIED
+				default-include %Boolean;#IMPLIED
+				in-library %Boolean;#IMPLIED
+				max-copies %Integer;#IMPLIED
+				watch-level %enumWatchLevel;#IMPLIED
+>
+
+<!ELEMENT dlg:wrapper-coordinate EMPTY>
+<!ATTLIST dlg:wrapper-coordinate 
+	value %Coordinate; #REQUIRED
+>
+
+<!ELEMENT dlg:rect EMPTY>
+<!ATTLIST dlg:rect 
+	bottom %Integer; #IMPLIED
+	left %Integer; #IMPLIED
+	right %Integer; #IMPLIED
+	top %Integer; #IMPLIED
+>
+
+<!ENTITY % dlg-array-wrapper-coordinate-elements "dlg:wrapper-coordinate*">
+<!ELEMENT dlg:array-wrapper-coordinate ( %dlg-array-wrapper-coordinate-elements; )*>
+
+<!-- c-data - Encoded data. -->
+<!-- encoding - System of encoding used. -->
+<!ENTITY % dlg-encoded-binary-elements "#PCDATA">
+<!ELEMENT dlg:encoded-binary ( %dlg-encoded-binary-elements; )>
+<!ENTITY % dlg-encoded-binary-attributes "
+	encoding %enumEncoding; #REQUIRED
+">
+<!ATTLIST dlg:encoded-binary %dlg-encoded-binary-attributes;>
+
+<!ELEMENT dlg:binary ( %dlg-encoded-binary-elements; )>
+<!ATTLIST dlg:binary 
+	%dlg-encoded-binary-attributes;
+>
+
+<!ELEMENT dlg:points ( %dlg-array-wrapper-coordinate-elements; )>
+
+<!ENTITY % dlg-object "dlg:shape | dlg:table | dlg:image | dlg:button | dlg:text | dlg:text-frame | dlg:frame-component | dlg:library-component-ref | dlg:barcode-use | dlg:message | dlg:composed-chart | dlg:chart | dlg:table-of-contents | dlg:index | dlg:signature-field | dlg:container | dlg:spacer" >
+<!ELEMENT dlg:object ( %dlg-object; )>
+<!ELEMENT dlg:objects ( (%dlg-object;)+ )>
+
+<!-- color - Paper color. -->
+<!-- size - Paper size. -->
+<!-- weight - Paper weight. -->
+<!ELEMENT dlg:paper-type EMPTY>
+<!ENTITY % dlg-paper-type-attributes "
+	color %Color; #IMPLIED
+	size %Coordinate; #IMPLIED
+	weight %Number; #IMPLIED
+">
+<!ATTLIST dlg:paper-type %dlg-paper-type-attributes;>
+
+<!ELEMENT dlg:point EMPTY>
+<!ATTLIST dlg:point 
+	x %Integer; #IMPLIED
+	y %Integer; #IMPLIED
+>
+
+<!ELEMENT dlg:layer-info EMPTY>
+<!ATTLIST dlg:layer-info 
+	id %Integer; #IMPLIED
+	name %Text; #IMPLIED
+	used %Boolean; #IMPLIED
+	view %Boolean; #IMPLIED
+>
+
+<!-- anchor - When object grows, which point is the anchor point -->
+<!-- brush - Fill? -->
+<!-- brush-fill-color - Fill color. -->
+<!-- brush-fill-type - Fill type. -->
+<!-- brush-hatch - Fill pattern. -->
+<!-- can-split - Can the object split across pages if it flows? -->
+<!-- current-angle - Clockwise rotation about top left corner (in degrees). -->
+<!-- duplex - Is two-sided? -->
+<!-- dynamic - How this object can be moved, sized, included. -->
+<!-- embed-info - Information about embedded objects. -->
+<!-- flip-h - Is flipped horizontally? -->
+<!-- flip-v - Is flipped vertically? -->
+<!-- flow-around - Does text flow around this object? -->
+<!-- flow-break - Does this object cause page break in flow? -->
+<!-- flow-break-margin - When this object is supposed to break the flow, how much margin above? -->
+<!-- flow-target-type - for named flow target support -->
+<!-- h-auto-size - Should this be autosized horizontally? -->
+<!-- hyperlink - String containing output URL. -->
+<!-- static-hyperlink - String containing static URL. -->
+<!-- hyperlink-new-window - Open link in new window? -->
+<!-- ignore-relative - Ignore this object for relative positioning -->
+<!-- layer-name - (language) layer name or Default -->
+<!-- locked - Is the object locked (if so, how) -->
+<!-- min-flow-size - Minimum height required for the first page of flow. -->
+<!-- pen - Outline? -->
+<!-- pen-color - Outline color. -->
+<!-- pen-style - Outline style. -->
+<!-- pen-width - Outline width. -->
+<!-- pos-rel-to-above - Is positioned relative to above? and at fixed position? -->
+<!-- position - Bounding rectangle.. -->
+<!-- rel-pos-reqd-y - The required Y position when pos relative to above -or- minimum shrink size if so. -->
+<!-- shadow - If/direction of shadow. -->
+<!-- shadow-color - Color of shadow. -->
+<!-- shadow-fill - Shadow fill type. -->
+<!-- size-maximum - Max Y value (absolute) to grow this object (only if m_bVAutoSize). -->
+<!-- size-minimum - Min height to shrink this object down (only if m_bVAutoSize). -->
+<!-- startup - Is this a startup object? (TEMPLATES ONLY) -->
+<!-- v-auto-size - Should this be autosized vertically? -->
+<!ENTITY % dlg-object-elements "dlg:metadata*, dlg:live?, dlg:rect?">
+<!ENTITY % dlg-object-attributes "
+	%dlg-meta-props-attributes;
+	anchor %enumAnchorPoint; #IMPLIED
+	brush %Boolean; #IMPLIED
+	brush-fill-color %Color; #IMPLIED
+	brush-fill-type %Integer; #IMPLIED
+	brush-hatch %Integer; #IMPLIED
+	can-split %Boolean; #IMPLIED
+	current-angle %Integer; #IMPLIED
+	delay-comp %enumDelayComp; #IMPLIED
+	duplex %Boolean; #IMPLIED
+	dynamic %Integer; #IMPLIED
+	embed-info %Integer; #IMPLIED
+	flip-h %Boolean; #IMPLIED
+	flip-v %Boolean; #IMPLIED
+	flow-around %enumFrameFlowAround; #IMPLIED
+	flow-break %enumFlowBreak; #IMPLIED
+	flow-break-margin %Integer; #IMPLIED
+	flow-target-type %enumFlowTargetType; #IMPLIED
+	h-auto-size %Boolean; #IMPLIED
+	hyperlink %Text; #IMPLIED
+	hyperlink-anchor %Reference; #IMPLIED
+	hyperlink-new-window %Boolean; #IMPLIED
+	id %Integer; #IMPLIED
+	ignore-relative %enumIgnoreRelative; #IMPLIED
+	in-available-objects %Boolean; #IMPLIED
+	layer-name %Text; #IMPLIED
+	language %Reference; #IMPLIED
+	link-type %enumHyperlinkType; #IMPLIED
+	locked %enumLocked; #IMPLIED
+	lock-proportions %Boolean; #IMPLIED
+	min-flow-size %Integer; #IMPLIED
+	min-height %Integer; #IMPLIED
+	oi-flow-target %Reference; #IMPLIED
+	page-flow-limit %Integer; #IMPLIED
+	pen %Boolean; #IMPLIED
+	pen-color %Color; #IMPLIED
+	pen-style %Integer; #IMPLIED
+	pen-width %Integer; #IMPLIED
+	pos-rel-to-above %Integer; #IMPLIED
+	reference-name %Text; #IMPLIED
+	rel-pos-reqd-y %Integer; #IMPLIED
+	ref-id %Integer; #IMPLIED
+	shadow %enumShadowTypes; #IMPLIED
+	shadow-color %Color; #IMPLIED
+	shadow-fill %Integer; #IMPLIED
+	size-maximum %Integer; #IMPLIED
+	size-minimum %Integer; #IMPLIED
+	startup %Boolean; #IMPLIED
+	static-hyperlink %Text; #IMPLIED
+	usage-rule %Reference; #IMPLIED 
+	v-auto-size %Boolean; #IMPLIED
+	variable-hyperlink %Reference; #IMPLIED
+	variable-hyperlink-ndx-value %Integer; #IMPLIED
+	variable-hyperlink-ndx-var %Reference; #IMPLIED
+	design-var-ndx %Integer; #IMPLIED
+	hyper-meta-props-alternate-text %Text; #IMPLIED
+	hyper-meta-props-language %Text; #IMPLIED
+	hyper-meta-props-options %enumMetaDataOptions; #IMPLIED
+	hyper-meta-props-order %Integer; #IMPLIED
+">
+
+<!ELEMENT dlg:charformat2 EMPTY>
+<!ATTLIST dlg:charformat2 
+	animation %Integer; #IMPLIED
+	back-color %Integer; #IMPLIED
+	char-set %Integer; #IMPLIED
+	effects %Integer; #IMPLIED
+	height %Integer; #IMPLIED
+	kerning %Integer; #IMPLIED
+	lcid %Integer; #IMPLIED
+	mask %Integer; #IMPLIED
+	offset %Integer; #IMPLIED
+	pitch-and-family %Integer; #IMPLIED
+	rev-author %Integer; #IMPLIED
+	size %Integer; #IMPLIED
+	spacing %Integer; #IMPLIED
+	style %Integer; #IMPLIED
+	text-color %Integer; #IMPLIED
+	underline-type %Integer; #IMPLIED
+	weight %Integer; #IMPLIED
+>
+
+<!-- angle - Rotation (in hundreths of degrees). -->
+<!-- binary - Image binary encoded in base 64. -->
+<!-- black-color - Black for 1-bit mode. -->
+<!-- convert - Special conversion mode. -->
+<!-- dither-method - LeadTools dithering method or CRF_NODITHERING for none. -->
+<!-- filename - Filename to load when importing from XML. -->
+<!-- halftone - Halftone dithering? -->
+<!-- halftone-angle - 0 - 180 -->
+<!-- halftone-grain - 0 - 15 -->
+<!-- halftone-shape - Default(print/view),RECT,CIRC,ELLIPS,RAND,LINEAR -->
+<!-- hl-color - White (or color) for 1-bit mode. -->
+<!-- original-stored - Has the original image been stored? (often to preserve original color model) -->
+<!-- scale-x - Horizontal scale (percentage in hundredths). -->
+<!-- scale-y - Vertical scale (percentage in hundredths). -->
+<!ENTITY % dlg-dib-elements "dlg:binary?">
+<!ELEMENT dlg:dib ( %dlg-dib-elements; )>
+<!ENTITY % dlg-dib-attributes "
+	angle %Integer; #IMPLIED
+	black-color %Color; #IMPLIED
+	repository-id %Text; #IMPLIED
+	convert %enumImageConvert; #IMPLIED
+	dither-method %Integer; #IMPLIED
+	filename %Text; #IMPLIED
+	halftone %Boolean; #IMPLIED
+	halftone-angle %Integer; #IMPLIED
+	halftone-grain %Integer; #IMPLIED
+	halftone-shape %Integer; #IMPLIED
+	hl-color %Color; #IMPLIED
+	original-stored %Boolean; #IMPLIED
+	scale-x %Integer; #IMPLIED
+	scale-y %Integer; #IMPLIED
+">
+<!ATTLIST dlg:dib %dlg-dib-attributes;>
+
+<!ELEMENT dlg:logfont EMPTY>
+<!ATTLIST dlg:logfont 
+	char-set %Integer; #IMPLIED
+	clip-precision %Integer; #IMPLIED
+	escapement %Integer; #IMPLIED
+	height %Integer; #IMPLIED
+	italic %Integer; #IMPLIED
+	orientation %Integer; #IMPLIED
+	out-precision %Integer; #IMPLIED
+	pitch-and-family %Integer; #IMPLIED
+	quality %Integer; #IMPLIED
+	strike-out %Integer; #IMPLIED
+	underline %Integer; #IMPLIED
+	weight %Integer; #IMPLIED
+	width %Integer; #IMPLIED
+>
+
+<!ELEMENT dlg:kerningpair EMPTY>
+<!ATTLIST dlg:kerningpair 
+	first %Integer; #IMPLIED
+	kern-amount %Integer; #IMPLIED
+	second %Integer; #IMPLIED
+>
+
+<!ELEMENT dlg:embedded-object ((%dlg-object;))>
+<!ATTLIST dlg:embedded-object
+	lower-left-X %Integer; #IMPLIED
+	lower-left-Y %Integer; #IMPLIED
+	height %Integer; #IMPLIED
+	width %Integer; #IMPLIED
+	embed-method %enumEmbedMethod; #IMPLIED
+	offset-X %Integer; #IMPLIED
+	offset-Y %Integer; #IMPLIED
+	embed-anchor %enumEmbedAnchor; #IMPLIED
+	embed-margin-top %Integer; #IMPLIED
+	embed-margin-bottom %Integer; #IMPLIED
+	embed-margin-left %Integer; #IMPLIED
+	embed-margin-right %Integer; #IMPLIED
+	embed-clear-floating-objects %enumClearFloatingObjects; #IMPLIED
+	line-weight %Integer; #IMPLIED
+	line-color %Color; #IMPLIED
+	line-style %enumLineStyle; #IMPLIED
+	absolute-docx %Boolean; #IMPLIED
+	docx-anchor %Boolean; #IMPLIED
+	docx-line-anchor %Boolean; #IMPLIED
+>
+
+<!ELEMENT dlg:value-pair EMPTY >
+<!ATTLIST dlg:value-pair
+                name %Text; #REQUIRED
+                value %Text; #IMPLIED
+>
+
+<!ENTITY % dlg-form-field-info "
+	allow-form-insert %Boolean; #IMPLIED
+	auto-size %Boolean; #IMPLIED
+	comb-type %enumCombType; #IMPLIED
+	fill-color %Color; #IMPLIED
+	form-height %Integer; #IMPLIED
+	form-space %Integer; #IMPLIED
+	form-width %Integer; #IMPLIED
+	line-color %Color; #IMPLIED
+	line-width %Integer; #IMPLIED
+	want-fill %Boolean; #IMPLIED
+">
+
+<!-- can-do-object-properties - bitmask, variable by use of live area -->
+
+<!ELEMENT dlg:live (dlg:value-pair*) >
+<!ATTLIST dlg:live
+	can-be-moved %Boolean; #IMPLIED
+	can-be-resized %Boolean; #IMPLIED
+	can-be-rotated %Boolean; #IMPLIED
+	can-change-format %Boolean; #IMPLIED
+	can-change-properties %Boolean; #IMPLIED
+	can-change-text-properties %Boolean; #IMPLIED
+	can-do-object-properties %Integer; #IMPLIED
+	can-type %Boolean; #IMPLIED
+	content-pick-type %enumContentPickType; #IMPLIED
+	content-variable-index %Integer; #IMPLIED
+	content-variable-oi %Reference; #IMPLIED
+	editable-area-name %Text; #IMPLIED
+	editing-change-type %enumEditingChangeType; #IMPLIED
+	enable-variable-oi %Reference; #IMPLIED
+	form-field-library %Reference; #IMPLIED
+	%dlg-form-field-info;
+	form-field-source %enumFormFieldSource; #IMPLIED
+	form-mask-name %Text; #IMPLIED
+	function-call-button-end %Reference; #IMPLIED
+	function-call-button-start %Reference; #IMPLIED
+	hidden-type %enumHiddenType; #IMPLIED
+	link-type %enumLinkType; #IMPLIED
+	list-can-multi-select %Boolean; #IMPLIED
+	list-can-sort %Boolean; #IMPLIED
+	list-display-variable %Reference; #IMPLIED
+	list-return-variable %Reference; #IMPLIED
+	list-type %enumPickListType; #IMPLIED
+	live-caption-text %Text; #IMPLIED
+	live-inheritance-type %enumLiveInheritanceType; #IMPLIED
+	live-validation %enumLiveValidation; #IMPLIED
+	page-name-method %enumPageNameMethod; #IMPLIED
+	page-name-static %Text; #IMPLIED
+	page-name-variable %Reference; #IMPLIED
+	selection-prompt-type %enumSelectionPromptType; #IMPLIED
+	selector-value %Text; #IMPLIED
+	static-hyperlink %Text; #IMPLIED
+	text-field-minimum-width %Integer; #IMPLIED
+	text-field-type %enumTextFieldType; #IMPLIED
+	tooltip %Text; #IMPLIED
+	upload-prompt %Text; #IMPLIED
+	use-variable-mask %Boolean; #IMPLIED
+	variable-for-selector %Reference; #IMPLIED
+	variable-hyperlink %Reference; #IMPLIED
+	exclude-from-outline %Boolean; #IMPLIED
+	show-tab %Boolean;  #IMPLIED
+	tab-stop %Boolean; #IMPLIED
+	user-hidden %Boolean; #IMPLIED
+>
+
+<!ELEMENT dlg:text-rule EMPTY>
+<!ATTLIST dlg:text-rule
+	usage-rule %Reference; #IMPLIED
+>
+
+<!-- enumSubstitutionTime: Use settings = -1, Initial engine = 0,  +LiveEditor = 1, +Final engine = 2 -->
+
+<!ELEMENT dlg:variable-use (dlg:live?) >
+<!ATTLIST dlg:variable-use
+	varuse-variable %Reference; #IMPLIED
+	varuse-array-use %enumVaruseArrayUse; #IMPLIED
+	varuse-array-index %Integer; #IMPLIED
+	varuse-format %Integer; #IMPLIED
+	varuse-custom-format %Text; #IMPLIED
+	varuse-number-of-digits %Integer; #IMPLIED
+	varuse-length %Integer; #IMPLIED
+	varuse-justification %enumVaruseJustification; #IMPLIED
+	varuse-pad-character %enumVarusePadCharacter; #IMPLIED
+	varuse-offset %Integer; #IMPLIED
+	varuse-substitution-time %Integer; #IMPLIED
+	varuse-display-string %Text; #IMPLIED
+	varuse-locator-search-key %Reference; #IMPLIED
+	varuse-aggregration %enumVaruseAggregation; #IMPLIED
+>
+
+<!ELEMENT dlg:column-break EMPTY>
+
+<!ELEMENT dlg:bitmap ( %dlg-dib-elements; )>
+<!ATTLIST dlg:bitmap 
+	%dlg-dib-attributes;
+>
+<!ELEMENT dlg:conditional-color EMPTY>
+<!ATTLIST dlg:conditional-color
+				condition-type %enumColorCondition; #IMPLIED
+				condition-value %Text; #IMPLIED
+				background-color %Color; #IMPLIED
+				background-fill %Integer; #IMPLIED
+				foreground-color %Color; #IMPLIED
+>
+
+<!ELEMENT dlg:conditional-colors (dlg:conditional-color*)>
+<!ATTLIST dlg:conditional-colors
+				condition-variable %Reference; #REQUIRED
+				default-background-color %Color; #IMPLIED
+				default-background-fill %Integer; #IMPLIED
+				default-foreground-color %Color; #IMPLIED
+>
+
+<!-- beg-pt-size - The size of the beginning end point -->
+<!-- beg-pt-type - The type of beginning end point for the line/polygon -->
+<!-- closed - Is this a closed polygon? -->
+<!-- end-pt-size - The size of the ending end point -->
+<!-- end-pt-type - The type of ending end point for the line/polygon -->
+<!-- shape - What shape is this? -->
+<!ELEMENT dlg:shape ( %dlg-object-elements;, dlg:points? )>
+<!ATTLIST dlg:shape 
+	%dlg-object-attributes;
+	beg-pt-size %Integer; #IMPLIED
+	beg-pt-type %enumEndPtTypes; #IMPLIED
+	closed %Boolean; #IMPLIED
+	end-pt-size %Integer; #IMPLIED
+	end-pt-type %enumEndPtTypes; #IMPLIED
+	points %Integer; #IMPLIED
+	shape %enumShapes; #IMPLIED
+	ignore-shape-angle %Boolean; #IMPLIED
+>
+
+<!ENTITY % dlg-smart-object-elements "%dlg-object-elements;">
+<!ENTITY % dlg-smart-object-attributes "
+	%dlg-object-attributes;
+">
+
+<!-- columns - Number of columns. -->
+<!-- gutter-size - Width of gutter between columns. -->
+<!-- original-poly - used when flowing around -->
+<!-- poly-text - Was this created from a polygon? -->
+<!-- wrap-around-other - Does my text honor the m_eWrapAround setting of other CDrawObj? -->
+<!ELEMENT dlg:text ( %dlg-smart-object-elements;, fo:flow?, dlg:points? )>
+<!ATTLIST dlg:text 
+	%dlg-smart-object-attributes;
+	all-straight %Boolean; #IMPLIED
+	columns %Integer; #IMPLIED
+	corner-size %Integer; #IMPLIED
+	docx-part %enumDocxPart; #IMPLIED
+	frame-style %enumFrameStyles; #IMPLIED
+	gutter-size %Integer; #IMPLIED
+	original-poly %Boolean; #IMPLIED
+	points %Integer; #IMPLIED
+	poly-text %Boolean; #IMPLIED
+	wrap-around-other %enumFlowAround; #IMPLIED
+	kerning %Integer; #IMPLIED
+	kern-amount %Integer; #IMPLIED
+	override-margins %Boolean; #IMPLIED
+	widows %Integer; #IMPLIED
+	xy-font-scaling %Boolean; #IMPLIED
+	hide-empty %Boolean; #IMPLIED
+	fit-text %enumFitText; #IMPLIED
+	fit-step %Integer; #IMPLIED
+	fit-min-point %Integer; #IMPLIED
+	fit-max-point %Integer; #IMPLIED
+	balance-cols %Boolean; #IMPLIED
+	fixed-height %Boolean; #IMPLIED
+	column-color-pen %Color; #IMPLIED
+	column-pen-style %enumLineStyle; #IMPLIED
+	column-pen-width %Integer; #IMPLIED
+	object-prerotated %Boolean; #IMPLIED
+	unicode-script %enumUnicodeScript; #IMPLIED
+	unicode-digits %enumUnicodeDigits; #IMPLIED
+>
+
+<!-- alternate-fill - turn fill on/off for repeating rows -->
+<!-- frame-style - Outline for the whole table -->
+<!-- keep-groups-together - ensures that instances of groups of rows are kept together on same page -->
+<!-- legend-box-pos - offset from left edge of table -->
+<!-- legend-box-pos-y - offset from top of row -->
+<!-- table-compose-type - set in PREP table -->
+<!ELEMENT dlg:table ( %dlg-smart-object-elements;, fo:table-column*, fo:table-row+ )>
+<!ATTLIST dlg:table 
+	%dlg-smart-object-attributes;
+	alternate-fill %Boolean; #IMPLIED
+	enable-data-sections %Boolean; #IMPLIED
+	enable-legend-boxes %Boolean; #IMPLIED
+	frame-style %enumTableFrameStyles; #IMPLIED
+	corner-size %Integer; #IMPLIED
+	keep-groups-together %Boolean; #IMPLIED
+	legend-box-pos %Integer; #IMPLIED
+	legend-box-pos-y %Integer; #IMPLIED
+	legend-box-size %Integer; #IMPLIED
+	legend-frame-color %Color; #IMPLIED
+	legend-frame-style %enumFrameStyle; #IMPLIED
+	table-compose-type %enumTableComposeType; #IMPLIED
+	table-type %enumDrawTableTypes; #IMPLIED
+	title-height %Integer; #IMPLIED
+	title-pos %enumTitlePosition; #IMPLIED
+	unicode-script %enumUnicodeScript; #IMPLIED
+	unicode-digits %enumUnicodeDigits; #IMPLIED
+>
+
+<!-- image-offset-x - Horizontal offset of image origin relative to box origin. -->
+<!-- image-offset-y - Vertical offset of image origin relative to box origin. -->
+<!ELEMENT  dlg:image ( %dlg-smart-object-elements;, dlg:bitmap?, dlg:image-element* )>
+<!ATTLIST dlg:image 
+	%dlg-smart-object-attributes;
+	align-from %Integer; #IMPLIED
+	align-from-variable %Reference; #IMPLIED
+	click-on %Boolean; #IMPLIED
+	maintain-filesize %enumFittingValues; #IMPLIED
+	snap-bounding-box-to-image %Boolean; #IMPLIED
+	fitting-variable %Reference; #IMPLIED
+	image-offset-x %Integer; #IMPLIED
+	image-offset-y %Integer; #IMPLIED
+	image-name %Text; #IMPLIED
+	image-path %Text; #IMPLIED
+	image-path-location %enumImagePathLocation; #IMPLIED
+	image-path-variable %Reference; #IMPLIED
+	import-type %enumImportType; #IMPLIED
+	picker-variable %Reference; #IMPLIED
+	picker-caption-variable %Reference; #IMPLIED
+	picker-selections-variable %Reference; #IMPLIED
+	placeholder-variable %Reference; #IMPLIED
+	stretch-to-frame %Boolean; #IMPLIED
+	height %Integer; #IMPLIED
+	width %Integer; #IMPLIED
+	is-empty-placeholder %Boolean; #IMPLIED
+	varuse-array-index %Reference; #IMPLIED		
+	selector-value %Reference; #IMPLIED	
+	rotation %Integer; #IMPLIED
+	selection %Integer; #IMPLIED
+	upload-archive %Text; #IMPLIED
+	upload-prompt %Text; #IMPLIED
+	upload-filename %Text; #IMPLIED
+	upload-value %Text; #IMPLIED
+	uploaded %Boolean; #IMPLIED	
+>
+
+<!ELEMENT dlg:image-element (dlg:bitmap?)>
+<!ATTLIST dlg:image-element
+	is-default %Boolean; #REQUIRED	
+	match %Text; #REQUIRED
+	caption %Text; #REQUIRED
+	uploaded %Boolean; #IMPLIED
+	draw-error-placeholder %Boolean; #IMPLIED
+>
+
+<!ELEMENT dlg:image-up (dlg:dib) >
+<!ELEMENT dlg:image-down (dlg:dib) >
+<!ELEMENT dlg:image-hover (dlg:dib) >
+
+<!ELEMENT dlg:text-frame (%dlg-smart-object-elements;)>
+<!ATTLIST dlg:text-frame
+	%dlg-smart-object-attributes;
+	oi-template-message-type %Integer; #IMPLIED
+	oi-template %Integer; #IMPLIED
+	oi-message-type %Integer; #IMPLIED
+	num-messages %Integer; #IMPLIED
+	frame-space-use %enumSpaceUse; #IMPLIED
+>
+
+<!ELEMENT dlg:frame-component (%dlg-smart-object-elements;)>
+<!ATTLIST dlg:frame-component
+	%dlg-smart-object-attributes;
+>
+
+<!ELEMENT dlg:button ( %dlg-smart-object-elements;, fo:font-props?, 
+                                     dlg:image-up?, dlg:image-down?, dlg:image-hover? )>
+<!ATTLIST dlg:button
+	%dlg-smart-object-attributes;
+	button-border-style %enumButtonBorderStyle; #IMPLIED
+	button-edge-size %Integer; #IMPLIED
+	button-style %enumButtonStyle; #REQUIRED
+	button-type %enumButtonType; #REQUIRED
+	caption %Text; #IMPLIED
+	caption-down %Text; #IMPLIED
+	click-on %Boolean; #IMPLIED
+	content-variable %Reference; #IMPLIED
+	disabled %Boolean; #IMPLIED
+	down-image-placeholder-variable %Reference; #IMPLIED
+	enabled-variable %Reference; #IMPLIED
+	frame-width %Integer; #IMPLIED
+	is-locked-on-sign %Boolean; #IMPLIED
+	local-version %Integer; #IMPLIED
+	selections-variable %Reference; #IMPLIED
+	signature-method %enumSignatureMethod; #IMPLIED
+	signature-scope %enumSignatureScope; #IMPLIED
+	std-button-size %Integer; #IMPLIED
+	text-align %Text; #IMPLIED
+	toggle %Boolean; #IMPLIED
+	tooltip %Text; #IMPLIED
+	value-if-clicked %Text; #IMPLIED
+	variable-index %Integer; #IMPLIED
+>
+ 
+<!ELEMENT dlg:contained-ref EMPTY>
+<!ATTLIST dlg:contained-ref
+	fixed-height %Boolean; #IMPLIED
+	fixed-width %Boolean; #IMPLIED
+	has-max-width %Integer; #IMPLIED
+	has-min-width %Integer; #IMPLIED
+	max-width %Integer; #IMPLIED
+	min-width %Integer; #IMPLIED
+	oid %Integer; #IMPLIED
+	page-oid %Integer; #IMPLIED
+	percent-width %Integer; #IMPLIED
+	x %Integer; #IMPLIED
+	y %Integer; #IMPLIED
+	z-index %Integer; #IMPLIED
+	has-z-index %Boolean; #IMPLIED
+>
+
+<!ELEMENT dlg:container ( %dlg-smart-object-elements;, dlg:contained-ref*, dlg:logical-cell*)>
+<!ATTLIST dlg:container 
+	%dlg-smart-object-attributes;
+	auto-resize-columns %Boolean; #IMPLIED
+	auto-resize-rows %Boolean; #IMPLIED
+	container-type %enumContainerType; #REQUIRED
+	container-clip %enumContainerClip; #IMPLIED
+	container-label-oi %Reference; #IMPLIED
+	glc-rows %Integer; #IMPLIED
+	glc-columns %Integer; #IMPLIED
+	has-max-width %Boolean;#IMPLIED
+	has-min-width %Boolean;#IMPLIED
+	has-percent-width %Boolean; #IMPLIED
+	height %Integer;#IMPLIED
+	is-responsive %Boolean;#IMPLIED
+	max-width %Integer;#IMPLIED
+	min-width %Integer;#IMPLIED
+	num-tiles %Integer; #IMPLIED
+	padding-tile %Integer;#IMPLIED
+	padding-left %Integer;#IMPLIED
+	padding-right %Integer;#IMPLIED
+	padding-top %Integer;#IMPLIED
+	padding-bottom %Integer;#IMPLIED
+	padding-elem %Integer;#IMPLIED
+	percent-width %Integer; #IMPLIED
+	stretch-to-children %Boolean;#IMPLIED
+	top-container %Boolean;#IMPLIED
+ 	width %Integer;#IMPLIED
+>
+
+<!ELEMENT dlg:logical-cell EMPTY>
+<!ATTLIST dlg:logical-cell
+	bottom-padding %Integer; #REQUIRED
+	brush %Boolean; #IMPLIED
+	brush-fill-color %Color; #IMPLIED
+	cell-alignment %enumCellAlignmentType; #REQUIRED
+	child-ndx %Integer; #REQUIRED
+	height %Integer; #REQUIRED
+	hspan %Integer; #REQUIRED
+	left-padding %Integer; #REQUIRED
+	right-padding %Integer; #REQUIRED
+	start-col %Integer; #REQUIRED
+	start-row %Integer; #REQUIRED
+	top-padding %Integer; #REQUIRED
+	vspan %Integer; #REQUIRED
+	width %Integer; #REQUIRED
+	cell-hide %Boolean; #IMPLIED
+>
+
+<!ELEMENT dlg:spacer ( %dlg-smart-object-elements;)>
+<!ATTLIST dlg:spacer 
+	%dlg-smart-object-attributes;
+	fixed-width %Boolean; #IMPLIED
+	fixed-height %Boolean; #IMPLIED
+	has-max-width %Boolean; #IMPLIED
+	has-min-width %Boolean; #IMPLIED
+	max-width %Integer; #IMPLIED
+	min-width %Integer; #IMPLIED
+	width %Integer; #IMPLIED
+	height %Integer; #IMPLIED
+	percent-width %Integer; #IMPLIED
+	percent-height %Integer; #IMPLIED
+>
+
+<!ELEMENT dlg:library-component-ref ( %dlg-smart-object-elements; )>
+<!ATTLIST	dlg:library-component-ref 
+	%dlg-smart-object-attributes;
+	library-component %Reference; #IMPLIED
+	version %Integer; #IMPLIED
+    rule-overridden %Boolean; #IMPLIED
+	sort-variable %Reference; #IMPLIED
+	sort-var-index %Integer; #IMPLIED
+	tab-index %Integer; #IMPLIED
+	page-number %Integer; #IMPLIED
+>
+
+<!ELEMENT dlg:message-content (fo:declarations?, (dlg:objects | dlg:object)? )>
+<!ATTLIST dlg:message-content
+			   %main-object-attributes;
+>
+
+<!-- xmlns:dlg - URI for the Exstream namespace. -->
+<!-- xmlns:fo - URI for the XSL-FO namespace. -->
+<!-- xmlns:dxf - another URI for the Exstream namespace. -->
+<!ELEMENT dlg:paragraph ( dlg:basic?, dlg:live?, dlg:target-text?, dlg:stylesheet?, (dlg:message-content? | (fo:declarations?, (dlg:objects | dlg:object)?))  )>
+<!ATTLIST dlg:paragraph
+               %main-object-attributes;
+               %dlg-meta-props-attributes;
+               aggreg-data-enable %enumAggregateDataEnable; #IMPLIED
+               allow-doc-checksum %Boolean; #IMPLIED
+               bottom-flow-margin %Integer; #IMPLIED
+               can-split-text %Boolean; #IMPLIED
+               can-be-used %Boolean; #IMPLIED
+               default-as-background %Boolean; #IMPLIED
+               design-resolution %Integer; #IMPLIED
+               flow-to-page %Reference; #IMPLIED
+               flow-type %enumFlowType; #IMPLIED
+               height %Integer; #IMPLIED
+               internet %Boolean; #IMPLIED
+               jurisdiction-use %enumJurisdictionUse; #IMPLIED
+               keep-with-next %Boolean; #IMPLIED
+               keep-with-previous %Boolean; #IMPLIED
+			   link-type %enumHyperlinkType; #IMPLIED
+               message-template %Reference; #IMPLIED
+               message-type %Reference; #IMPLIED
+               page-duplex %Boolean; #IMPLIED
+               page-orientation %enumOrientations; #IMPLIED
+               page-placement %enumPagePlacements; #IMPLIED
+               page-template %Reference; #IMPLIED
+               page-type %enumMessagePageType; #IMPLIED
+               paper-type %Reference; #IMPLIED
+               renumber-text %Boolean; #IMPLIED
+               send-default %Boolean; #IMPLIED
+               size %Coordinate; #IMPLIED
+               stylesheet %Reference; #IMPLIED
+               track-begin %Date; #IMPLIED
+               track-end %Date; #IMPLIED
+               tracking-level %enumTrackingLevel; #IMPLIED
+               top-flow-margin %Integer; #IMPLIED
+               type %Text; #IMPLIED
+               url %Text; #IMPLIED
+			   usage-rule %Reference; #IMPLIED
+			   user-identifier %Text; #IMPLIED
+			   variable-hyperlink %Reference; #IMPLIED
+               version %Integer; #IMPLIED
+               widow-orphan %Integer; #IMPLIED
+               width %Integer; #IMPLIED
+>
+
+<!ELEMENT dlg:ref-many-jurisdiction EMPTY >
+<!ATTLIST dlg:ref-many-jurisdiction
+	approved %Date; #IMPLIED
+	approver %Text; #IMPLIED
+	approver-oi %Integer; #IMPLIED
+	effective %Date; #IMPLIED
+	expires %Date; #IMPLIED
+	jurisdiction %Reference; #REQUIRED
+>
+
+<!-- xmlns:dlg - URI for the Exstream namespace. -->
+<!-- xmlns:fo - URI for the XSL-FO namespace. -->
+<!-- xmlns:dxf - another URI for the Exstream namespace. -->
+<!ELEMENT dlg:message ( dlg:metadata*, dlg:basic?, dlg:live?,dlg:target-text?, dlg:stylesheet?, dlg:ref-many-jurisdiction*, (dlg:message-content? | (fo:declarations?, (dlg:objects | dlg:object)?))  )>
+<!ATTLIST dlg:message
+			   %main-object-attributes;
+			   %dlg-meta-props-attributes;
+               allow-doc-checksum %Boolean; #IMPLIED
+               bottom-flow-margin %Integer; #IMPLIED
+               can-split-text %Boolean; #IMPLIED
+               can-be-used %Boolean; #IMPLIED
+               default-as-background %Boolean; #IMPLIED
+               design-resolution %Integer; #IMPLIED
+               flow-to-page %Reference; #IMPLIED
+               flow-type %enumFlowType; #IMPLIED
+               internet %Boolean; #IMPLIED
+               jurisdiction-use %enumJurisdictionUse; #IMPLIED
+			   link-type %enumHyperlinkType; #IMPLIED
+               message-template %Reference; #IMPLIED
+               message-type %Reference; #IMPLIED
+               page-duplex %Boolean; #IMPLIED
+               page-orientation %enumOrientations; #IMPLIED
+               page-placement %enumPagePlacements; #IMPLIED
+               page-template %Reference; #IMPLIED
+               page-type %enumMessagePageType; #IMPLIED
+               paper-type %Reference; #IMPLIED
+               preprint-weight %Text; #IMPLIED
+               renumber-text %Boolean; #IMPLIED
+               send-default %Boolean; #IMPLIED
+               size %Coordinate; #IMPLIED
+               stylesheet %Reference; #IMPLIED
+               track-begin %Date; #IMPLIED
+               track-end %Date; #IMPLIED
+               tracking-level %enumTrackingLevel; #IMPLIED
+               top-flow-margin %Integer; #IMPLIED
+               type %Text; #IMPLIED
+               url %Text; #IMPLIED
+               usage-rule %Reference; #IMPLIED
+               user-identifier %Text; #IMPLIED
+			   variable-hyperlink %Reference; #IMPLIED
+               version %Integer; #IMPLIED
+               weight-selection-type %enumWeightSelectionType; #IMPLIED
+               weight-variable %Reference; #IMPLIED
+               widow-orphan %Integer; #IMPLIED
+               hyperlink %Text; #IMPLIED
+               hyperlink-new-window %Boolean; #IMPLIED
+>
+
+<!ELEMENT dlg:message-use EMPTY>
+<!ATTLIST dlg:message-use
+	message %Reference; #REQUIRED
+>
+
+<!ELEMENT dlg:teaser-message (dlg:message | dlg:message-use)?>
+
+<!ELEMENT dlg:campaign-run EMPTY>
+<!ATTLIST dlg:campaign-run
+	end-date %Date; #IMPLIED
+	start-date %Date; #IMPLIED
+	tracking %Boolean; #IMPLIED
+>
+
+<!ELEMENT dlg:priority-formula (dlg:formula-text?) >
+<!ELEMENT dlg:formula-text (#PCDATA)>
+
+<!-- xmlns:dlg - URI for the Exstream namespace. -->
+<!-- xmlns:fo - URI for the XSL-FO namespace. -->
+<!-- xmlns:dxf - another URI for the Exstream namespace. -->
+<!ELEMENT dlg:campaign ( dlg:basic?, dlg:live?, dlg:message-use*, dlg:campaign-run*, dlg:priority-formula?, dlg:teaser-message?, (dlg:message | dlg:message-use)*  )>
+<!ATTLIST dlg:campaign
+	%main-object-attributes;
+	activity-delay-type %enumActivityDelayTypes; #IMPLIED
+	all-msg-together %Boolean; #IMPLIED
+	always-first %Boolean; #IMPLIED
+	campaign %Reference; #IMPLIED
+	campaign-type %enumCampaignType; #IMPLIED
+	can-be-used %Boolean; #IMPLIED
+	exclusivity %enumExclusivities; #IMPLIED
+	frequency %Integer; #IMPLIED
+	if-in-file %Reference; #IMPLIED
+	in-file %Boolean; #IMPLIED
+	max-job-times %Integer; #IMPLIED
+	max-times-to-send %Integer; #IMPLIED
+	max-total-times %Integer; #IMPLIED
+	priority %Integer; #IMPLIED
+	priority-type %enumPriorityTypes; #IMPLIED
+	rule-timing %enumRuleTiming; #IMPLIED
+	rule-timing-section %Text; #IMPLIED
+	run-plan %enumRunPlan; #IMPLIED
+	target-activity %enumTargetActivities; #IMPLIED
+	target-method %enumTargetMethods; #IMPLIED
+	teaser %Reference; #IMPLIED
+	track-begin %Date; #IMPLIED
+	track-end %Date; #IMPLIED
+	tracking-level %enumTrackingLevels; #IMPLIED
+	until-response %Boolean; #IMPLIED
+	usage-rule %Reference; #IMPLIED
+	user-sort1 %Text; #IMPLIED
+	user-sort2 %Text; #IMPLIED
+	user-sort3 %Text; #IMPLIED
+	version %Integer; #IMPLIED
+	was-sent-times %Integer; #IMPLIED
+	which-docs %enumWhichDocs; #IMPLIED
+>
+
+<!ELEMENT dlg:campaign-reference EMPTY>
+<!ATTLIST dlg:campaign-reference 
+	campaign-ref %Reference; #REQUIRED
+>
+
+<!ELEMENT dlg:content-reference EMPTY>
+<!ATTLIST dlg:content-reference 
+	section-or-paragraph-ref %Reference; #REQUIRED
+>
+
+<!-- union for policy content -->
+<!ENTITY % policy-content "dlg:section | dlg:paragraph | dlg:content-reference">
+
+<!ELEMENT dlg:section ( dlg:metadata*, dlg:basic?, dlg:live?, fo:declarations?, dlg:ref-many-jurisdiction*,
+                                      (%policy-content;)* )>
+<!ATTLIST dlg:section
+   %main-object-attributes;
+	aggreg-data-bound %enumAggregateDataBoundary; #IMPLIED
+	data-section-name %Text; #IMPLIED
+	design-page %Reference; #IMPLIED
+	flow-target-type %enumFlowTargetType; #IMPLIED
+	inclusion-method %enumInclusionMethod; #IMPLIED
+	jurisdiction-use %enumJurisdictionUse; #IMPLIED
+	message-target-type %Reference; #IMPLIED
+	named-flow %Reference; #IMPLIED
+	section-paragraph-usage %enumSectionParagraphUsage; #IMPLIED
+	usage-rule %Reference; #IMPLIED
+>
+
+<!ELEMENT dlg:frame EMPTY>
+<!ATTLIST dlg:frame  
+            value %Integer; #IMPLIED
+>
+
+<!ELEMENT dlg:page-frame EMPTY>
+<!ATTLIST dlg:page-frame
+	%dlg-meta-props-attributes;
+	allow-smaller %Boolean; #IMPLIED
+	auto-hide %Boolean; #IMPLIED
+	can-be-graphic %Boolean; #IMPLIED
+	can-be-toc %Boolean; #IMPLIED
+	can-be-table %Boolean; #IMPLIED
+	can-be-text %Boolean; #IMPLIED
+	can-split %Boolean; #IMPLIED
+	content-type %enumContentType; #IMPLIED
+	duplex %Boolean; #IMPLIED
+	flow-around %enumFlowAround; #IMPLIED
+	flow-control %enumFlowControl; #IMPLIED
+	named-flow %Reference; #IMPLIED
+	frame-line-color %Color; #IMPLIED
+	frame-line-style %enumLineStyle; #IMPLIED
+	frame-style %Integer; #IMPLIED
+	have-footnote %enumHaveFootnote; #IMPLIED
+	hide-margin %Integer; #IMPLIED
+	in-available-objects %Boolean; #IMPLIED
+	is-place-holder %Boolean; #IMPLIED
+	isa-teaser %Boolean; #IMPLIED
+	language %Reference; #IMPLIED
+	message-template %Reference; #IMPLIED
+	message-type %Reference; #IMPLIED
+	min-size-after-overlap %Integer; #IMPLIED
+	multiple-messages %Boolean; #IMPLIED
+	num-text-columns %Integer; #IMPLIED
+	offset-frame-line %Integer; #IMPLIED
+	orientation %enumOrientations; #IMPLIED
+	paper-type %Reference; #IMPLIED
+	rect %Rect; #IMPLIED
+	ref-id %Integer; #IMPLIED 
+	relative-above %enumFrameRelative; #IMPLIED
+	relative-y-position %Integer; #IMPLIED
+	space-use %enumSpaceUse; #IMPLIED
+	template-msg-type %Reference; #IMPLIED
+	text-col-gutter-width %Integer; #IMPLIED
+	wt-frame-line-style %Integer; #IMPLIED
+>
+
+<!ELEMENT dlg:front-flow-frames (dlg:frame*) >
+<!ELEMENT dlg:back-flow-frames (dlg:frame*) >
+<!ELEMENT dlg:front-toc-frames (dlg:frame*) >
+<!ELEMENT dlg:back-toc-frames (dlg:frame*) >
+
+
+<!-- design-height - used for pages only -->
+<!-- xmlns:dlg - URI for the Exstream namespace. -->
+<!-- xmlns:fo - URI for the XSL-FO namespace. -->
+<!-- xmlns:dxf - another URI for the Exstream namespace. -->
+<!ELEMENT dlg:page ( dlg:metadata*, dlg:basic?, 
+								   dlg:front-flow-frames?, dlg:back-flow-frames?, 
+								   dlg:front-toc-frames?, dlg:back-toc-frames?, 
+								   dlg:page-frame*, dlg:live?, dlg:paper-type?,
+								   fo:declarations?, dlg:paper-type?, dlg:objects? )>
+<!ATTLIST dlg:page 
+	%main-object-attributes;
+	%dlg-meta-props-attributes;
+	allow-doc-checksum %Boolean; #IMPLIED
+	back-color %Color; #IMPLIED
+	can-grow %Boolean; #IMPLIED
+	design-height %Integer; #IMPLIED
+	design-type %enumDesignTypes; #IMPLIED
+	flow-to-page %Reference; #IMPLIED
+	flow-type %enumFlowType; #IMPLIED
+	front-color %Color; #IMPLIED
+	has-footnote %Boolean; #IMPLIED
+	has-index %Boolean; #IMPLIED
+	has-toc %Boolean; #IMPLIED
+	margin-bottom %Integer; #IMPLIED
+	margin-left %Integer; #IMPLIED
+	margin-right %Integer; #IMPLIED
+	margin-top %Integer; #IMPLIED
+	orientation %enumOrientations; #IMPLIED
+	page-can-overflow %Boolean; #IMPLIED
+	page-duplex %Boolean; #IMPLIED
+	page-in-sections %Boolean; #IMPLIED
+	page-orientation %enumOrientations; #IMPLIED
+	paper-type %Reference; #IMPLIED
+	scale %Integer; #IMPLIED
+	show-background %Boolean; #IMPLIED
+	stylesheet %Reference; #IMPLIED
+	stylesheet-changed %Boolean; #IMPLIED
+	usage-rule %Reference; #IMPLIED
+	version %Integer; #IMPLIED
+>
+
+<!ELEMENT dlg:page-reference EMPTY>
+<!ATTLIST dlg:page-reference 
+	page-ref %Reference; #REQUIRED
+>
+<!ENTITY % page-in-document "dlg:page | dlg:page-reference | dlg:message | dlg:message-use">
+
+<!ELEMENT dlg:doc-message-use (%page-in-document;)? >
+<!ATTLIST dlg:doc-message-use
+	max-copies %Integer; #IMPLIED
+	message %Reference; #IMPLIED
+	page-number %Integer; #IMPLIED
+	page-positions %enumPagePositions; #IMPLIED
+>
+
+<!ENTITY % message-in-document "dlg:page | dlg:page-reference | dlg:doc-message-use">
+
+<!-- xmlns:dlg - URI for the Exstream namespace. -->
+<!-- xmlns:fo - URI for the XSL-FO namespace. -->
+<!-- xmlns:dxf - another URI for the Exstream namespace. -->
+<!ELEMENT dlg:document ( dlg:metadata*,dlg:basic?, dlg:live?, dlg:ref-many-jurisdiction*, (%message-in-document;)+, dlg:section* )>
+<!ATTLIST dlg:document
+  %main-object-attributes;
+	allow-doc-combination %enumAllowDocCombination; #IMPLIED
+	back-page %Reference; #IMPLIED
+	back-page-type %enumBackPageTypes; #IMPLIED
+	can-be-used %Boolean; #IMPLIED
+	data-section-name %Text; #IMPLIED
+	doc-number-type %enumDocNumberTypes; #IMPLIED
+	doc-placeholder-var %Reference; #IMPLIED
+	doc-prefix %Text; #IMPLIED
+	doc-selection %enumDocSelection; #IMPLIED
+	document-type %enumDocumentUse; #IMPLIED
+	duplex-control %enumDocDuplexControl; #IMPLIED
+	duplex-mode %enumDocDuplexMode; #IMPLIED
+	frame-fill-method %enumFrameFillMethod; #IMPLIED
+	id-variable %Reference; #IMPLIED
+	jurisdiction-use %enumJurisdictionUse; #IMPLIED
+	max-marketing-pages %Integer; #IMPLIED
+	msg-select-variable %Reference; #IMPLIED
+	msg-selection %enumMsgSelection; #IMPLIED
+	page-number-type %enumDocNumberTypes; #IMPLIED
+	paragraph-select-variable %Reference; #IMPLIED
+	paragraph-selection %enumParaSelection; #IMPLIED
+	queue-rule %Boolean; #IMPLIED
+	restart-doc-count %Boolean; #IMPLIED
+	restart-page-count %Boolean; #IMPLIED
+	rule-run-time %enumRuleRunTime; #IMPLIED
+	section-doc-combination %enumDocCombination; #IMPLIED
+	separator-type %enumDocTOCSep; #IMPLIED
+	usage-rule %Reference; #IMPLIED
+>
+
+<!ELEMENT dlg:document-reference EMPTY>
+<!ATTLIST dlg:document-reference 
+	document-ref %Reference; #REQUIRED
+>
+
+<!ELEMENT dlg:library-component ( dlg:basic?, fo:declarations?, dlg:object )>
+<!ATTLIST dlg:library-component
+	%main-object-attributes;
+	locked-size %Boolean; #IMPLIED
+	locked-rotation %Boolean; #IMPLIED
+	locked-position %Boolean; #IMPLIED
+	locked-rule %Boolean; #IMPLIED
+	locked-position-x %Integer; #IMPLIED
+	locked-position-y %Integer; #IMPLIED
+	page-count %Integer; #IMPLIED
+	stylesheet %Reference; #IMPLIED
+	usage-rule %Reference; #IMPLIED
+>
+
+<!ELEMENT dlg:build-part EMPTY>
+<!ATTLIST dlg:build-part
+	allow-zero %Boolean; #IMPLIED
+	num-digits %Integer; #IMPLIED
+	type %enumPartTypes; #IMPLIED
+	use-map %Boolean; #IMPLIED
+	variable %Reference; #IMPLIED
+>
+
+<!-- xmlns:dlg - URI for the Exstream namespace. -->
+<!ELEMENT dlg:barcode ( dlg:basic?, dlg:build-part* )>
+<!ATTLIST dlg:barcode 
+   %main-object-attributes;
+  	bar-size1 %Integer; #IMPLIED
+	bar-size2 %Integer; #IMPLIED
+	bar-size3 %Integer; #IMPLIED
+	bar-size4 %Integer; #IMPLIED
+	barcode-type %enumBarcodeTypes; #REQUIRED
+	bcoca-check-digit %Boolean; #IMPLIED
+	bcoca-hri %Boolean; #IMPLIED
+	bcoca-no-asterisk %Boolean; #IMPLIED
+	bcoca-width %Integer; #IMPLIED
+	bottom %Integer; #IMPLIED
+	design-sample %Text; #IMPLIED
+	dm-data-type %enumDMDataType; #IMPLIED
+	dm-error-level %enumDMErrorLevel; #IMPLIED
+	dm-height %Integer; #IMPLIED
+	dm-pixel-size %Integer; #IMPLIED
+	dm-width %Integer; #IMPLIED
+	draw-lines %Boolean; #IMPLIED
+	font-face %Text; #IMPLIED
+	height %Integer; #IMPLIED
+	hri-bottom %Integer; #IMPLIED
+	hri-font-bold %Boolean; #IMPLIED
+	hri-font-face %Text; #IMPLIED
+	hri-font-italic %Boolean; #IMPLIED
+	hri-font-size %Integer; #IMPLIED
+	hri-left %Integer; #IMPLIED
+	hri-placement %enumHRITypes; #IMPLIED
+	hri-orientation %enumOrientations; #IMPLIED
+	hri-relative %Boolean; #IMPLIED
+	left %Integer; #IMPLIED
+	map-base %Integer; #IMPLIED
+	map-string %Text; #IMPLIED
+	orientation %enumOrientations; #IMPLIED
+	output-type %enumBarcodeOutputType; #IMPLIED
+	pdf417-columns %enum417Cols; #IMPLIED
+	pdf417-compaction %enum417Compaction; #IMPLIED
+	pdf417-error-level %enum417ErrorLevel; #IMPLIED
+	pdf417-rows %Integer; #IMPLIED
+	placement %enumBarcodeCorner; #IMPLIED
+	qr-error-level %enumQRErrorLevel; #IMPLIED
+	qr-mask-pattern %enumQRMaskPattern; #IMPLIED
+	qr-module-width %Integer; #IMPLIED
+	qr-symbol-version %enumQRSymbVersion; #IMPLIED
+	ref-id %Integer; #IMPLIED
+	space %Integer; #IMPLIED
+	space-size1 %Integer; #IMPLIED
+	space-size2 %Integer; #IMPLIED	
+	space-size3 %Integer; #IMPLIED	
+	space-size4 %Integer; #IMPLIED	
+	thickness %Integer; #IMPLIED
+	use %enumBarcodeUse; #IMPLIED
+	version %Integer; #IMPLIED
+>
+
+<!ELEMENT dlg:barcode-use (%dlg-smart-object-elements;, (dlg:barcode)?)>
+<!ATTLIST dlg:barcode-use
+	%dlg-smart-object-attributes;
+	barcode-auto-id %Boolean; #IMPLIED
+	barcode-id %Text; #IMPLIED
+	show-hri %Boolean; #IMPLIED
+>
+
+<!ELEMENT dlg:bin-content EMPTY>
+<!ATTLIST dlg:bin-content
+	input-action %enumInserterInputActions; #IMPLIED
+	language %Reference; #IMPLIED
+	message %Reference; #IMPLIED
+>
+
+<!ELEMENT dlg:chart-series ( dlg:conditional-colors? )>
+<!ATTLIST dlg:chart-series
+	bar-label %Reference; #IMPLIED
+	color %Color; #IMPLIED
+	color-effect %Integer; #IMPLIED
+	edge-color %Color; #IMPLIED
+	explode %Boolean; #IMPLIED
+	index %Integer; #IMPLIED
+	label %Text; #IMPLIED
+	label-color %Color; #IMPLIED
+	label-variable %Reference; #IMPLIED
+	line-method %Integer; #IMPLIED
+	line-style %Integer; #IMPLIED
+	line-symbol %Integer; #IMPLIED
+	line-symbol-size %Integer; #IMPLIED
+	line-weight %Integer; #IMPLIED
+	variable %Reference; #IMPLIED
+>
+
+<!ENTITY % dlg-chart-attributes "
+	%dlg-smart-object-attributes;
+	alternating-xy %Boolean; #IMPLIED
+	angle %Integer; #IMPLIED
+	axes-display-level %enumDisplayLevel; #IMPLIED
+	bar-label-orientation %enumBarLabelOrientation; #IMPLIED
+	bar-label-placement %enumBarLabelPlace; #IMPLIED
+	bar-label-type %enumDataLabelType; #IMPLIED
+	bar-percent-size %Integer; #IMPLIED
+	baseline %Reference; #IMPLIED
+	blend-areas %Boolean; #IMPLIED
+	border %enumChartFrameType; #IMPLIED
+	caption-orientation %enumScatterLabelAngle; #IMPLIED
+	chart-type %enumChartTypes; #IMPLIED
+	crosshair-line-color %Color; #IMPLIED
+	crosshair-line-style %Integer; #IMPLIED
+	crosshair-line-weight %Integer; #IMPLIED
+	crosshair-type %enumCrosshairType; #IMPLIED
+	crosshair-x %Number; #IMPLIED
+	crosshair-x-variable %Reference; #IMPLIED
+	crosshair-y %Number; #IMPLIED
+	crosshair-y-variable %Reference; #IMPLIED
+	custom-legend-box-size %Boolean; #IMPLIED
+	data-label-align %Integer; #IMPLIED
+	data-label-border-color %Color; #IMPLIED
+	data-label-border-style %Integer; #IMPLIED
+	data-label-border-weight %Integer; #IMPLIED
+	data-label-collision-avoidance %enumCollisionAvoidance; #IMPLIED
+	data-label-display-level %enumLabelDispLev; #IMPLIED
+	data-label-fill-color %Color; #IMPLIED
+	data-label-fill-type %enumDataLabelBkgrType; #IMPLIED
+	data-label-font-bold %Boolean; #IMPLIED
+	data-label-font-color %Color; #IMPLIED
+	data-label-font-face %Text; #IMPLIED
+	data-label-font-italic %Boolean; #IMPLIED
+	data-label-font-size %Integer; #IMPLIED
+	data-label-override %Reference; #IMPLIED
+	data-label-placement %enumDataLabelPlacement; #IMPLIED
+	data-label-plot-area-method %enumDataLabelInPlotAreaMethod; #IMPLIED
+	data-label-series %enumDataLabelSeries; #IMPLIED
+	explode-level %Integer; #IMPLIED
+	fill-areas %Boolean; #IMPLIED
+	filter-action %enumPieFilterCombine; #IMPLIED
+	filter-amount %Integer; #IMPLIED
+	filter-label %Text; #IMPLIED
+	filter-method %enumPieFilter; #IMPLIED
+	filter-total %Integer; #IMPLIED
+	frame-rect %Rect; #IMPLIED
+	frame-rect-3d %Rect; #IMPLIED
+	frame-x %Integer; #IMPLIED
+	frame-y %Integer; #IMPLIED
+	grid-color %Color; #IMPLIED
+	grid-display-level %enumDisplayLevel; #IMPLIED
+	grid-style %Integer; #IMPLIED
+	grid-weight %Integer; #IMPLIED
+	has-shadow-color %Color; #IMPLIED
+	is-3d %Boolean; #IMPLIED
+	label-color %enumLabelColorSel; #IMPLIED
+	label-fit %Boolean; #IMPLIED
+	label-format %Text; #IMPLIED
+	label-line-color %Color; #IMPLIED
+	label-line-method %enumLabelLineMethod; #IMPLIED
+	label-line-width %Integer; #IMPLIED
+	legend-fill-color %Color; #IMPLIED
+	legend-fill-transparent %Boolean; #IMPLIED
+	legend-font-bold %Boolean; #IMPLIED
+	legend-font-color %Color; #IMPLIED
+	legend-font-face %Text; #IMPLIED
+	legend-font-italic %Boolean; #IMPLIED
+	legend-font-pts %Integer; #IMPLIED
+	legend-font-size %Integer; #IMPLIED
+	legend-format %Text; #IMPLIED
+	legend-frame %Boolean; #IMPLIED
+	legend-hanging-wrap %Boolean; #IMPLIED
+	legend-height %Integer; #IMPLIED
+	legend-label-order %Reference; #IMPLIED
+	legend-labels %enumDataLabelType; #IMPLIED
+	legend-num-columns %Integer; #IMPLIED
+	legend-original-position %enumLegendPos; #IMPLIED
+	legend-percentage-digits %Integer; #IMPLIED
+	legend-position %enumLegendPos; #IMPLIED
+	legend-rect %Rect; #IMPLIED
+	legend-reverse-order %Boolean; #IMPLIED
+	legend-spacing %enumLegendSpacing; #IMPLIED
+	legend-tab1 %Integer; #IMPLIED
+	legend-tab2 %Integer; #IMPLIED
+	legend-width %Integer; #IMPLIED
+	legend-wrap %Boolean; #IMPLIED
+	legend-x %Integer; #IMPLIED
+	legend-y %Integer; #IMPLIED
+	line-color %Color; #IMPLIED
+	line-width %Integer; #IMPLIED
+	overlay-flags %Integer; #IMPLIED
+	percentage-color %Color; #IMPLIED
+	pie-edge-color %Color; #IMPLIED
+	pie-fill-color %Color; #IMPLIED
+	pie-fill-color-effect %Integer; #IMPLIED
+	pie-size-ratio %Integer; #IMPLIED
+	plot-3d-edge-fill-color %Color; #IMPLIED
+	plot-fill-color %Color; #IMPLIED
+	plot-frame-style %enumAxesFrameType; #IMPLIED
+	plot-line-color %Color; #IMPLIED
+	plot-line-style %Integer; #IMPLIED
+	plot-line-weight %Integer; #IMPLIED
+	plot-range-fill %enumBkgrRangeFillType; #IMPLIED
+	plot-range-fill-axis %enumAxis; #IMPLIED
+	plot-range-fill-color %Color; #IMPLIED
+	plot-range-fill-max %Number; #IMPLIED
+	plot-range-fill-max-variable %Reference; #IMPLIED
+	plot-range-fill-min %Number; #IMPLIED
+	plot-range-fill-min-variable %Reference; #IMPLIED
+	polygon-radar %Boolean; #IMPLIED
+	show-percentage %Boolean; #IMPLIED
+	show-values %Boolean; #IMPLIED
+	sort-type %enumPieSortType; #IMPLIED
+	thickness %Integer; #IMPLIED
+	title %Text; #IMPLIED
+	title-align %Integer; #IMPLIED
+	title-font-bold %Boolean; #IMPLIED
+	title-font-color %Color; #IMPLIED
+	title-font-face %Text; #IMPLIED
+	title-font-italic %Boolean; #IMPLIED
+	title-font-pts %Integer; #IMPLIED
+	title-font-size %Integer; #IMPLIED
+	title-rect %Rect; #IMPLIED
+	title-variable %Reference; #IMPLIED
+	title-x %Integer; #IMPLIED
+	title-y %Integer; #IMPLIED
+	units-per-inch %Integer; #IMPLIED
+	use-array %Boolean; #IMPLIED
+	xaxis-alternate-label %Reference; #IMPLIED
+	xaxis-always-display-year %Boolean; #IMPLIED
+	xaxis-complete-time-periods %Boolean; #IMPLIED
+	xaxis-custom-format %Text; #IMPLIED
+	xaxis-day-format %Integer; #IMPLIED
+	xaxis-decimal %Text; #IMPLIED
+	xaxis-digits %Integer; #IMPLIED
+	xaxis-font-bold %Boolean; #IMPLIED
+	xaxis-font-color %Color; #IMPLIED
+	xaxis-font-face %Text; #IMPLIED
+	xaxis-font-italic %Boolean; #IMPLIED
+	xaxis-font-pts %Integer; #IMPLIED
+	xaxis-font-size %Integer; #IMPLIED
+	xaxis-format %Integer; #IMPLIED
+	xaxis-grid %Boolean; #IMPLIED
+	xaxis-grid-skip-interval %Integer; #IMPLIED
+	xaxis-hour-format %Integer; #IMPLIED
+	xaxis-interval %enumTimeInc; #IMPLIED
+	xaxis-label-method %enumLabelScale; #IMPLIED
+	xaxis-label-orientation %enumXAxisLabelOrientation; #IMPLIED
+	xaxis-month-format %Integer; #IMPLIED
+	xaxis-negative-style %Integer; #IMPLIED
+	xaxis-position-labels-between-lines %Boolean; #IMPLIED
+	xaxis-quarter-format %Integer; #IMPLIED
+	xaxis-range-maximum %Integer; #IMPLIED
+	xaxis-range-method %enumRangeMethod; #IMPLIED
+	xaxis-range-minimum %Integer; #IMPLIED
+	xaxis-range-variable %Reference; #IMPLIED
+	xaxis-scale %enumAxisScale; #IMPLIED
+	xaxis-thousands %Text; #IMPLIED
+	xaxis-tick-method %enumTickMethod; #IMPLIED
+	xaxis-tick-number %Integer; #IMPLIED
+	xaxis-tick-style %enumTickStyles; #IMPLIED
+	xaxis-title %Text; #IMPLIED
+	xaxis-title-align %Integer; #IMPLIED
+	xaxis-title-font-bold %Boolean; #IMPLIED
+	xaxis-title-font-color %Color; #IMPLIED
+	xaxis-title-font-face %Text; #IMPLIED
+	xaxis-title-font-italic %Boolean; #IMPLIED
+	xaxis-title-font-pts %Integer; #IMPLIED
+	xaxis-title-font-size %Integer; #IMPLIED
+	xaxis-title-variable %Reference; #IMPLIED
+	xaxis-year-format %Integer; #IMPLIED
+	xseries-variable %Reference; #IMPLIED
+	y-zero-line %enumZeroLineProps; #IMPLIED
+	yaxis-align %Integer; #IMPLIED
+	yaxis-alternate-labels %Reference; #IMPLIED
+	yaxis-custom-format %Text; #IMPLIED
+	yaxis-decimal %Text; #IMPLIED
+	yaxis-digits %Integer; #IMPLIED
+	yaxis-font-bold %Boolean; #IMPLIED
+	yaxis-font-color %Color; #IMPLIED
+	yaxis-font-face %Text; #IMPLIED
+	yaxis-font-italic %Boolean; #IMPLIED
+	yaxis-font-pts %Integer; #IMPLIED
+	yaxis-font-size %Integer; #IMPLIED
+	yaxis-format %Integer; #IMPLIED
+	yaxis-grid %Boolean; #IMPLIED
+	yaxis-negative-scale-factor %Integer; #IMPLIED
+	yaxis-negative-style %Integer; #IMPLIED
+	yaxis-position %enumAxisPosition; #IMPLIED
+	yaxis-range-maximum %Integer; #IMPLIED
+	yaxis-range-method %enumRangeMethod; #IMPLIED
+	yaxis-range-minimum %Integer; #IMPLIED
+	yaxis-range-variable %Reference; #IMPLIED
+	yaxis-reduce-magnitude %enumAutoReduceYAxis; #IMPLIED
+	yaxis-scale %enumAxisScale; #IMPLIED
+	yaxis-show-labels %Boolean; #IMPLIED
+	yaxis-thousands %Text; #IMPLIED
+	yaxis-tick-method %Integer; #IMPLIED
+	yaxis-tick-number %Integer; #IMPLIED
+	yaxis-tick-style %enumTickStyles; #IMPLIED
+	yaxis-title %Text; #IMPLIED
+	yaxis-title-align %Integer; #IMPLIED
+	yaxis-title-font-bold %Boolean; #IMPLIED
+	yaxis-title-font-color %Color; #IMPLIED
+	yaxis-title-font-face %Text; #IMPLIED
+	yaxis-title-font-italic %Boolean; #IMPLIED
+	yaxis-title-font-pts %Integer; #IMPLIED
+	yaxis-title-font-size %Integer; #IMPLIED
+	yaxis-title-variable %Reference; #IMPLIED
+"
+>
+
+<!ENTITY % dlg-chart-elements "(%dlg-smart-object-elements;, dlg:chart-series*)">
+
+<!ELEMENT dlg:chart-overlay ( %dlg-chart-elements; )>
+<!ATTLIST dlg:chart-overlay %dlg-chart-attributes; >
+
+<!ELEMENT dlg:chart ( %dlg-chart-elements;, dlg:chart-overlay? )>
+<!ATTLIST dlg:chart %dlg-chart-attributes; >
+
+<!ELEMENT dlg:composed-chart (dlg:metadata*,(dlg:objects | dlg:object )?)>
+<!ATTLIST dlg:composed-chart
+	hyperlink %Text; #IMPLIED
+	hyperlink-new-window %Boolean; #IMPLIED >
+	
+<!ELEMENT dlg:table-of-contents-level EMPTY>
+<!ATTLIST dlg:table-of-contents-level
+	%fo-font-props-attributes;
+	color %Color; #IMPLIED
+	include-leaders %Boolean; #IMPLIED
+	level-indent %Integer; #IMPLIED
+	space-above %Integer; #IMPLIED
+>
+
+<!ELEMENT dlg:table-of-contents ( %dlg-smart-object-elements;, dlg:table-of-contents-level* )>
+<!ATTLIST dlg:table-of-contents
+	%dlg-smart-object-attributes;
+	column-width %Integer; #IMPLIED
+	entry-wrap %Boolean; #IMPLIED
+	justification %enumPARA_JUSTIFY; #IMPLIED
+	leader %Text; #IMPLIED
+	level-indent %Integer; #IMPLIED
+	num-levels %Integer; #IMPLIED
+	page-number-position %enumTOCPagePositionType; #IMPLIED
+	toc-hyperlink %Boolean; #IMPLIED
+	toc-type %enumTOCType; #IMPLIED
+>
+
+<!ELEMENT dlg:index-level EMPTY>
+<!ATTLIST dlg:index-level
+	%fo-font-props-attributes;
+	color %Color; #IMPLIED
+	level-indent %Integer; #IMPLIED
+	space-above %Integer; #IMPLIED
+>
+
+<!ELEMENT dlg:index ( %dlg-smart-object-elements;, dlg:index-level* )>
+<!ATTLIST dlg:index
+	%dlg-smart-object-attributes;
+	column-width %Integer; #IMPLIED
+	custom-heading-order %enumIndexOrder; #IMPLIED
+	custom-heading-position %enumIndexRelative; #IMPLIED
+	display-alphabetic-headings %Boolean; #IMPLIED
+	entry-order %enumIndexOrder; #IMPLIED
+	entry-wrap %Boolean; #IMPLIED
+	heading-justification %enumPARA_JUSTIFY; #IMPLIED
+	heading-position %enumIndexRelative; #IMPLIED
+	heading-text %Text; #IMPLIED
+	justification %enumPARA_JUSTIFY; #IMPLIED
+	leader %Text; #IMPLIED
+	level-indent %Integer; #IMPLIED
+	num-levels %Integer; #IMPLIED
+	page-number-position %enumIndexPageNums; #IMPLIED
+	show-duplicates %Boolean; #IMPLIED
+	show-every-page %Boolean; #IMPLIED
+>
+
+<!ELEMENT dlg:signature-field ( %dlg-smart-object-elements; )>
+<!ATTLIST dlg:signature-field
+	%dlg-smart-object-attributes;
+	signaturefield-type %enumSignatureFieldType; #IMPLIED
+	email-variable %Reference; #IMPLIED
+	is-optional %Boolean; #IMPLIED
+	other-type %Text; #IMPLIED
+>
+
+<!ELEMENT dlg:page-side EMPTY>
+<!ATTLIST dlg:page-side
+	value %enumBCPageSide; #REQUIRED
+>
+
+<!ELEMENT dlg:inserter ( dlg:basic?, dlg:bin-content*, dlg:page-side*, dlg:barcode* )>
+<!ATTLIST dlg:inserter
+   %main-object-attributes;
+	bin-action %enumBinActions; #IMPLIED
+	bins %Integer; #IMPLIED
+	model %Text; #IMPLIED
+	weight %Text; #IMPLIED
+	weight-selection-type %enumWeightSelectionType; #IMPLIED
+	weight-variable %Reference; #IMPLIED
+>
+
+<!ENTITY % application-content "dlg:document | dlg:document-reference | dlg:campaign | dlg:campaign-reference | dlg:library-component" >
+
+<!ELEMENT dlg:application ( dlg:metadata*, dlg:basic?, fo:declarations?, (%application-content;)+ )>
+<!ATTLIST dlg:application
+  %main-object-attributes;
+>
+
+<!ELEMENT dlg:dxf-text (fo:flow) >
+<!ATTLIST dlg:dxf-text
+  %main-object-attributes;
+>
+
+<!ELEMENT dlg:target-text (#PCDATA)>
+
+<!ELEMENT dlg:simplerule (dlg:rule-line?, dlg:folder?, dlg:condition?, dlg:value-folder?, dlg:value?, dlg:priority?)>
+<!ATTLIST dlg:simplerule
+  include %Text; #IMPLIED
+  default-priority %Text; #IMPLIED
+>
+
+<!ELEMENT dlg:rule-line (dlg:and-or?)>
+<!ELEMENT dlg:and-or (#PCDATA)>
+
+<!ELEMENT dlg:folder (#PCDATA)>
+<!ELEMENT dlg:condition (#PCDATA)>
+<!ELEMENT dlg:value-folder (#PCDATA)>
+<!ELEMENT dlg:value (#PCDATA)>
+<!ELEMENT dlg:priority (#PCDATA)>
+
+<!ELEMENT dlg:stylesheet (dlg:font-face*)>
+<!ELEMENT dlg:font-face (dlg:basic?, dlg:name?, dlg:size?)>
+<!ATTLIST dlg:font-face
+  allow-bold %Boolean; #IMPLIED
+  allow-italic %Boolean; #IMPLIED
+  allow-underline %Boolean; #IMPLIED
+  restrict-to-list %Boolean; #IMPLIED
+>
+<!ELEMENT dlg:size (#PCDATA)>
+<!ATTLIST dlg:size
+  allow-normal %Boolean; #IMPLIED
+  allow-bold %Boolean; #IMPLIED
+  allow-italic %Boolean; #IMPLIED
+  allow-bold-italic %Boolean; #IMPLIED
+ >
+  
+<!ELEMENT dlg:metadata EMPTY >
+<!ATTLIST dlg:metadata 
+	name %Text; #IMPLIED
+	metadata-ref %Reference; #IMPLIED
+	value %Text; #IMPLIED
+	variable %Reference; #IMPLIED
+>
+
+<!ELEMENT dlg:cascading-style-sheet ( dlg:metadata*, dlg:basic?,
+												 fo:declarations?, dlg:content? )>
+<!ATTLIST dlg:cascading-style-sheet
+	%main-object-attributes;
+	production-file-name %Text; #IMPLIED
+	storage-type %enumCSSStorageType; #IMPLIED
+	css-insertion-type %enumCSSInsertionType; #IMPLIED
+	test-file-name %Text; #IMPLIED
+	usage-rule %Reference; #IMPLIED
+	variable-for-file-naming %Reference; #IMPLIED
+>
+
+<!ELEMENT dlg:ref-many-cascadingstylesheets EMPTY>
+<!ATTLIST dlg:ref-many-cascadingstylesheets
+	cascading-style-sheet %Reference; #IMPLIED >
+
+<!ELEMENT dlg:container-label ( dlg:metadata*, dlg:basic?,
+										 fo:declarations?, dlg:ref-many-cascadingstylesheets* )>
+<!ATTLIST dlg:container-label %main-object-attributes; >
+
+<!ELEMENT dlg:hyperlink-anchor ( dlg:metadata*, dlg:basic?,
+										 fo:declarations? )>
+<!ATTLIST dlg:hyperlink-anchor %main-object-attributes; >

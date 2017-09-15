@@ -1,0 +1,74 @@
+ *******************************************************************************
+ * OpenText Exstream Version 16.2.0 64-bit (DBCS)
+ * Execution Begins: 8/21/2017   11:11:41
+ * Message File  (178236)
+ *******************************************************************************
+ *******************************************************************************
+ *         Summary of Exstream Run Options                                     *
+ *******************************************************************************
+ *   Run As-Of Date:         Month (8)  Day (21)  Year (2017)
+ *   Control File:           E:\installed_apps\CCM_Demo\UseCase1\EWS\EngineService\scratch\ExstreamApp00c1ae6bd39f4d629d2551302e7b91b7\control.opt
+ *   Control File Encoding:  ISO88591
+ *   Package File (  1):     E:\installed_apps\CCM_Demo\UseCase1\EWS\EngineService\packages\ExstreamApp.pub -- Application Package
+ *   Message File:           ExstreamMessages.dat
+ *   Report  File:           ExstreamReport.dat
+ *   Track   File:           ExstreamTrack.dat
+ *   Non-Queue Output File:  E:\installed_apps\CCM_Demo\UseCase1\EWS\EngineService\scratch\ExstreamApp00c1ae6bd39f4d629d2551302e7b91b7\ExstreamApp.out
+ *   Output Directory:  E:\installed_apps\CCM_Demo\UseCase1\EWS\EngineService\scratch\ExstreamApp00c1ae6bd39f4d629d2551302e7b91b7\
+ *   Run Mode:               Production
+ *   Compiled Engine Type:   Release Production
+ *   Program Functions:      Composition
+ *   Error Stop Level:       Severe
+ *   Post Sort Mode:         No
+ *   Create Output Files:    Yes
+ *   Disable Print Files:    No
+ *   Disable Output Sort:    No
+ *   Campaign Report Level:  None
+ *   Tracking DSN:           Exstream Tracking 16.2.0
+ *   Tracking Schema:        None
+ *   Tracking Type:          File
+ *   Tracking Input:         Database
+ *   Verbose Progress:       Automatic
+ *   Overlay Mode:           Based On Printer
+ *   Maximum Overlays:       Based On Printer
+ *   Import Directory:       
+ *   Process Customers:      0 to 999999999 by 1
+ *   File Mapping:           1 Files Are Mapped
+ *       DRIVER  ===>  E:\installed_apps\CCM_Demo\UseCase1\EWS\EngineService\scratch\ExstreamApp00c1ae6bd39f4d629d2551302e7b91b7\DRIVER.in   
+ *******************************************************************************
+ *******************************************************************************
+ *         Package File Overview                                               *
+ *******************************************************************************
+ *   Creation Date :         08/19/2017  00:13
+ *   Created By :            admin
+ *   Design Manager Version :1602000
+ *   Package Contents:       Complete
+ *   Package Type:           Full Application Package
+ *   Application:            Test_App_Arun
+ *   Application revised :   08/19/2017  00:07
+ *   Application version :   1
+ *   Package Object Version: WIP for all users
+ *   Package As-of Date:     Now (08/19/2017  00:12)
+ *   Jurisdictions:          None
+ *   Application Queues:     Enabled
+ *******************************************************************************
+EX001012W (1) The system key expires in 56 days on 2017-10-15. Send an email to "software.keys@opentext.com" for information on 
+              updating your key or contact OpenText Customer Support if email is unavailable.
+ *   Output will be written to Queue files, not the Non-Queue Output File
+EX002522W (1) The locale is not set for this application. The language and locale will be set to default.
+EX002697I (1) Data aggregation has been enabled due to XML end tag processing.
+EX001800I (1) >>>>>>>>>>>> Driver File: opening the customer driver file named Test_App_Student_DataFile. <<<<<<<<<<<<
+ *******************************************************************************
+ *   Rules on Queues processed AFTER composition because of variables used in rules.
+ *************************************************************************
+ DrawPart PDL Print Memory - Total:  2000056
+ *************************************************************************
+ Number of messages issued:     4    total called:  4
+ Number of customers processed: 1
+ Number of customer communications produced: 1
+ Number of pages processed:     2    (1 blank)
+ Program start & end:           08/21/2017 11:11:41 - 11:11:41
+ Elapsed wall clock time:       00:00:00
+ Elapsed CPU time:              0.03  sec SETUP  0.03  sec TOTAL
+ CPU Performance:               240000 Pgs/Hr  66.7 Pgs/Sec
+ Wall clock performance:        Cannot be calculated

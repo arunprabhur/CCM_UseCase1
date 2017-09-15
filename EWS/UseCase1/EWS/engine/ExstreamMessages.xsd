@@ -1,0 +1,317 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<xs:schema xmlns:xs="http://www.w3.org/2001/XMLSchema" elementFormDefault="qualified">
+	<xs:element name="MessageFile">
+		<xs:complexType>
+			<xs:sequence>
+				<xs:element ref="EngineHeader" minOccurs="0"/>
+				<xs:element ref="RunOptions" minOccurs="0"/>
+				<xs:element ref="PackageOverview" minOccurs="0" maxOccurs="unbounded"/>
+				<xs:element ref="EngineRunMessage" minOccurs="0" maxOccurs="unbounded"/>
+				<xs:element ref="RunStats" minOccurs="0"/>
+			</xs:sequence>
+		</xs:complexType>
+	</xs:element>
+	<!-- Engine Header Elements -->
+	<xs:element name="EngineHeader">
+		<xs:complexType>
+			<xs:sequence>
+				<xs:element name="ExstreamVersion" type="xs:string"/>
+				<xs:element name="StartTime" type="xs:dateTime"/>
+				<xs:element name="Title" type="xs:string"/>
+				<xs:element name="BuildNum" type="xs:int"/>
+				<xs:element name="SerializeNum" type="xs:int"/>
+				<xs:element name="SpecialBuildNote" type="xs:string" minOccurs="0"/>
+				<xs:element name="TransactionNum" type="xs:int" minOccurs="0"/>
+			</xs:sequence>
+		</xs:complexType>
+	</xs:element>
+	<!-- Run Options Elements -->
+	<xs:element name="RunOptions">
+		<xs:complexType>
+			<xs:sequence>
+				<xs:element name="RunDate" type="xs:date"/>
+				<xs:element name="ControlFile" type="xs:string" minOccurs="0"/>
+				<xs:element name="CFEncoding" type="xs:string" minOccurs="0"/>
+				<xs:element name="ResMgmFile" type="xs:string" minOccurs="0"/>
+				<xs:element name="PackageFile" type="PackageFileType" maxOccurs="unbounded"/>
+				<xs:element name="MFName" type="xs:string"/>
+				<xs:element name="ReportFile" type="xs:string"/>
+				<xs:element name="TrackFile" type="xs:string"/>
+				<xs:element name="MemStats" type="xs:boolean" minOccurs="0"/>
+				<xs:element name="MemSave" type="xs:string" minOccurs="0"/>
+				<xs:element name="CacheManager" type="CacheManagerType" minOccurs="0"/>
+				<xs:element name="SectionBreakCount" type="xs:int" minOccurs="0"/>
+				<xs:element name="SerializationMode" type="xs:boolean" minOccurs="0"/>
+				<xs:element name="NONQueueOutFile" type="xs:string" minOccurs="0"/>
+				<xs:element name="OutDir" type="xs:string" minOccurs="0"/>
+				<xs:element name="SecureOut" type="xs:boolean" minOccurs="0"/>
+				<xs:element name="TestDataCaptureFile" type="xs:string" minOccurs="0"/>
+				<xs:element name="RunMode" type="xs:string"/>
+				<xs:element name="CompiledEngineType" type="xs:string" minOccurs="0"/>
+				<xs:element name="ProgramFunctions" type="ProgramFunctionsType"/>
+				<xs:element name="ErrorStopLvl" type="xs:string"/>
+				<xs:element name="PostSortInfo" type="PostSortInfoType"/>
+				<xs:element name="CreateOutFiles" type="xs:boolean"/>
+				<xs:element name="DisablePrintFiles" type="xs:string"/>
+				<xs:element name="DisableOutSort" type="xs:boolean"/>
+				<xs:element name="CampaignReportLvl" type="xs:string"/>
+				<xs:element name="TrackingDSN" type="xs:string"/>
+				<xs:element name="TrackingSchema" type="xs:string"/>
+				<xs:element name="TrackingType" type="xs:string"/>
+				<xs:element name="TrackingInput" type="xs:string"/>
+				<xs:element name="VerboseProgress" type="xs:string"/>
+				<xs:element name="OverlayMode" type="xs:string"/>
+				<xs:element name="MaxOverlays" type="xs:string"/>
+				<xs:element name="ImportDir" type="ImportDirType"/>
+				<xs:element name="ForceImportNote" type="xs:string" minOccurs="0"/>
+				<xs:element name="TestMode" type="xs:boolean" minOccurs="0"/>
+				<xs:element name="RasterizeNote" type="xs:string" minOccurs="0"/>
+				<xs:element name="OldAfpMcf1" type="xs:boolean" minOccurs="0"/>
+				<xs:element name="ImportPDFasEPS" type="xs:boolean" minOccurs="0"/>
+				<xs:element name="AFPFontStartNum" type="xs:int" minOccurs="0"/>
+				<xs:element name="MetacodePageChar" type="xs:string" minOccurs="0"/>
+				<xs:element name="DynamicTapeUnit" type="xs:string" minOccurs="0"/>
+				<xs:element name="DynamicDataClass" type="xs:string" minOccurs="0"/>
+				<xs:element name="DynamicTIFFTest" type="xs:boolean" minOccurs="0"/>
+				<xs:element name="DrawImagesFirst" type="xs:string" minOccurs="0"/>
+				<xs:element name="AllInMemoryNote" type="xs:string" minOccurs="0"/>
+				<xs:element name="MVSInfoMsg" type="xs:string" minOccurs="0" maxOccurs="unbounded"/>
+				<xs:element name="JoinFunction" type="xs:string" minOccurs="0"/>
+				<xs:element name="ProcessCustInfo" type="ProcessCustInfoType"/>
+				<xs:element name="OpenAllFiles" type="xs:string" minOccurs="0"/>
+				<xs:element name="FileMapInfo" type="FileMapInfoType"/>
+			</xs:sequence>
+		</xs:complexType>
+	</xs:element>
+	<xs:complexType name="PackageFileType">
+		<xs:sequence>
+			<xs:element name="PFID" type="xs:int"/>
+			<xs:element name="PackageFileName" type="xs:string"/>
+			<xs:element name="PFType" type="xs:string"/>
+		</xs:sequence>
+	</xs:complexType>
+	<xs:complexType name="CacheManagerType">
+		<xs:sequence>
+			<xs:element name="MemCache" type="xs:boolean"/>
+			<xs:element name="MemCacheType" type="xs:string"/>
+			<xs:element name="NumCacheFiles" type="xs:int"/>
+			<xs:element name="TableCaching" type="xs:boolean"/>
+			<xs:element name="TableRowsNum" type="xs:int"/>
+		</xs:sequence>
+	</xs:complexType>
+	<xs:complexType name="ProgramFunctionsType">
+		<xs:sequence>
+			<xs:element name="FuncType" type="xs:string"/>
+			<xs:element name="LoadLookupFile" type="xs:string" minOccurs="0"/>
+		</xs:sequence>
+	</xs:complexType>
+	<xs:complexType name="PostSortInfoType">
+		<xs:sequence>
+			<xs:element name="PostSortMode" type="xs:boolean"/>
+			<xs:element name="SortIndexFile" type="xs:string" minOccurs="0"/>
+			<xs:element name="SortDataFile" type="SortDataFileType" minOccurs="0" maxOccurs="unbounded"/>
+		</xs:sequence>
+	</xs:complexType>
+	<xs:complexType name="SortDataFileType">
+		<xs:sequence>
+			<xs:element name="SortFileID" type="xs:int"/>
+			<xs:element name="SortFileName" type="xs:string"/>
+		</xs:sequence>
+	</xs:complexType>
+	<xs:complexType name="ImportDirType">
+		<xs:sequence>
+			<xs:element name="ImportDirPath" type="xs:string"/>
+			<xs:element name="ImportNote" type="xs:string" minOccurs="0"/>
+		</xs:sequence>
+	</xs:complexType>
+	<xs:complexType name="ProcessCustInfoType">
+		<xs:sequence>
+			<xs:element name="StartCust" type="xs:int"/>
+			<xs:element name="EndCust" type="xs:int"/>
+			<xs:element name="ByCust" type="xs:int"/>
+		</xs:sequence>
+	</xs:complexType>
+	<xs:complexType name="FileMapInfoType">
+		<xs:sequence>
+			<xs:element name="FileMapCount" type="xs:int"/>
+			<xs:element name="Mapping" type="MappingType" minOccurs="0" maxOccurs="unbounded"/>
+		</xs:sequence>
+	</xs:complexType>
+	<xs:complexType name="MappingType">
+		<xs:sequence>
+			<xs:element name="MapID" type="xs:int"/>
+			<xs:element name="OriginMapFile" type="xs:string"/>
+			<xs:element name="DestMapFile" type="xs:string"/>
+		</xs:sequence>
+	</xs:complexType>
+	<!-- Package Overview Elements -->
+	<xs:element name="PackageOverview">
+		<xs:complexType>
+			<xs:sequence>
+				<xs:element name="PackageID" type="xs:int"/>
+				<xs:element name="PackageCreated" type="xs:dateTime"/>
+				<xs:element name="PackageCreatedBy" type="xs:string"/>
+				<xs:element name="DesignMgrVer" type="xs:int"/>
+				<xs:element name="PackageContents" type="xs:string"/>
+				<xs:element name="PackageType" type="xs:string"/>
+				<xs:element name="PackageApplication" type="xs:string" minOccurs="0"/>
+				<xs:element name="AppRevDateTime" type="xs:dateTime"/>
+				<xs:element name="AppVer" type="xs:string"/>
+				<xs:element name="PackageObjVer" type="xs:string"/>
+				<xs:element name="PackageAsOfInfo" type="PackageAsOfInfoType"/>
+				<xs:element name="PackageJurisdiction" type="xs:string" minOccurs="0"/>
+				<xs:element name="AppQueueEnabled" type="xs:boolean"/>
+				<xs:element name="MVSVSAM" type="xs:boolean" minOccurs="0"/>
+			</xs:sequence>
+		</xs:complexType>
+	</xs:element>
+	<xs:complexType name="PackageAsOfInfoType">
+		<xs:sequence>
+			<xs:element name="AsOfType" type="xs:string"/>
+			<xs:element name="AsOfDateTime" type="xs:dateTime"/>
+			<xs:element name="AsOfStartRange" type="xs:date" minOccurs="0"/>
+		</xs:sequence>
+	</xs:complexType>
+	<!-- Engine Run Message Elements -->
+	<xs:element name="EngineRunMessage" type="EngineRunMsgType"/>
+	<xs:complexType name="EngineRunMsgType">
+		<xs:simpleContent>
+			<xs:extension base="xs:string">
+				<xs:attribute name="code" type="xs:string"/>
+				<xs:attribute name="level" type="xs:string"/>
+				<xs:attribute name="count" type="xs:int"/>
+			</xs:extension>
+		</xs:simpleContent>
+	</xs:complexType>
+	<!-- Run Statistics Elements -->
+	<xs:element name="RunStats">
+		<xs:complexType>
+			<xs:sequence>
+				<xs:element name="MsgResErrorMsg" type="xs:string" minOccurs="0"/>
+				<xs:element name="PDLMemInfo" type="PDLMemInfoType"/>
+				<xs:element name="RunSummary" type="RunSummaryType"/>
+				<xs:element name="DevInfo" type="DevInfoType" minOccurs="0"/>
+			</xs:sequence>
+		</xs:complexType>
+	</xs:element>
+	<xs:complexType name="PDLMemInfoType">
+		<xs:sequence>
+			<xs:element name="TotalPDLMem" type="xs:int"/>
+			<xs:element name="MaxDL" type="xs:int" minOccurs="0"/>
+			<xs:element name="CurrDL" type="xs:int" minOccurs="0"/>
+			<xs:element name="LargestPrintMem" type="xs:int" minOccurs="0"/>
+			<xs:element name="NewDLMem" type="xs:int" minOccurs="0"/>
+			<xs:element name="EnlargedDLMem" type="xs:int" minOccurs="0"/>
+			<xs:element name="ReducedDLMem" type="xs:int" minOccurs="0"/>
+			<xs:element name="MemDiff" type="MemDiffType" minOccurs="0"/>
+			<xs:element name="MemoryNote" type="xs:string" minOccurs="0"/>
+		</xs:sequence>
+	</xs:complexType>
+	<xs:complexType name="MemDiffType">
+		<xs:sequence>
+			<xs:element name="MemDiffInfo" type="xs:string"/>
+			<xs:element name="MemDifferenceKB" type="xs:int"/>
+			<xs:element name="MemDifferenceMB" type="xs:int"/>
+			<xs:element name="MemCurrentKB" type="xs:int" minOccurs="0"/>
+			<xs:element name="MemCurrentMB" type="xs:int" minOccurs="0"/>
+		</xs:sequence>
+	</xs:complexType>
+	<xs:complexType name="RunSummaryType">
+		<xs:sequence>
+			<xs:element name="NumIssuedMsgs" type="xs:int"/>
+			<xs:element name="TotalCalledMsgs" type="xs:int"/>
+			<xs:element ref="TopErrorMsgs" minOccurs="0"/>
+			<xs:element name="NumProcessedCust" type="xs:int"/>
+			<xs:element name="NumCustCommunications" type="xs:int"/>
+			<xs:element name="NumRecipients" type="xs:int" minOccurs="0"/>
+			<xs:element name="CampaingsCount" type="xs:int" minOccurs="0"/>
+			<xs:element name="CampaignsMsgCount" type="xs:int" minOccurs="0"/>
+			<xs:element name="TotalPages" type="xs:int"/>
+			<xs:element name="BlankPages" type="xs:int"/>
+			<xs:element name="ProgramStart" type="xs:dateTime"/>
+			<xs:element name="ProgramEnd" type="xs:dateTime"/>
+			<xs:element name="WallTime" type="xs:time"/>
+			<xs:element name="CPUSetupTime" type="xs:decimal"/>
+			<xs:element name="CPUTotTime" type="xs:decimal"/>
+			<xs:element name="TestCaptureNote" type="xs:string" minOccurs="0"/>
+			<xs:element name="CPUPerfPgsHr" type="xs:int" minOccurs="0"/>
+			<xs:element name="CPUPerfPgsSec" type="xs:decimal" minOccurs="0"/>
+			<xs:element name="HighVolPerfEstHr" type="xs:int" minOccurs="0"/>
+			<xs:element name="HighVolPerfEstSec" type="xs:decimal" minOccurs="0"/>
+			<xs:element name="WallPerfHr" type="xs:int" minOccurs="0"/>
+			<xs:element name="WallPerfSec" type="xs:decimal" minOccurs="0"/>
+			<xs:element name="RunNote" type="xs:string" minOccurs="0" maxOccurs="unbounded"/>
+		</xs:sequence>
+	</xs:complexType>
+	<xs:element name="TopErrorMsgs">
+		<xs:complexType>
+			<xs:sequence>
+				<xs:element name="ErrorMsg" type="TopErrorMsgsType" minOccurs="0" maxOccurs="unbounded"/>
+			</xs:sequence>
+		</xs:complexType>
+	</xs:element>
+	<xs:complexType name="TopErrorMsgsType">
+		<xs:sequence>
+			<xs:element name="MsgNum" type="xs:string"/>
+			<xs:element name="MsgCallCount" type="xs:int"/>
+		</xs:sequence>
+	</xs:complexType>
+	<xs:complexType name="DevInfoType">
+		<xs:sequence>
+			<xs:element name="CharSize" type="xs:int"/>
+			<xs:element name="CharMin" type="xs:int"/>
+			<xs:element name="CharMax" type="xs:int"/>
+			<xs:element name="TCharSize" type="xs:int"/>
+			<xs:element name="TCharMin" type="xs:int"/>
+			<xs:element name="TCharMax" type="xs:int"/>
+			<xs:element name="NDebug" type="xs:boolean"/>
+			<xs:element name="uDebug" type="xs:boolean"/>
+			<xs:element name="WINInfo" type="WINInfoType" minOccurs="0"/>
+			<xs:element name="SUNInfo" type="SUNInfoType" minOccurs="0"/>
+			<xs:element name="MVSDevInfo" type="MVSDevInfoType" minOccurs="0"/>
+			<xs:element name="ExstreamDevInfo" type="ExstreamDevInfoType"/>
+		</xs:sequence>
+	</xs:complexType>
+	<xs:complexType name="WINInfoType">
+		<xs:sequence>
+			<xs:element name="uWin32" type="xs:boolean"/>
+			<xs:element name="MSCVer" type="xs:string"/>
+			<xs:element name="MX64" type="xs:string" minOccurs="0"/>
+			<xs:element name="MIX86" type="xs:string" minOccurs="0"/>
+		</xs:sequence>
+	</xs:complexType>
+	<xs:complexType name="SUNInfoType">
+		<xs:sequence>
+			<xs:element name="uSUN" type="xs:boolean"/>
+			<xs:element name="SUN" type="xs:boolean"/>
+			<xs:element name="uUnix" type="xs:boolean"/>
+			<xs:element name="Unix" type="xs:boolean"/>
+			<xs:element name="uSparc" type="xs:boolean"/>
+			<xs:element name="Sparc" type="xs:boolean"/>
+			<xs:element name="SunCC" type="xs:string"/>
+		</xs:sequence>
+	</xs:complexType>
+	<xs:complexType name="MVSDevInfoType">
+		<xs:sequence>
+			<xs:element name="CompDate" type="xs:string"/>
+			<xs:element name="CompVer" type="xs:string"/>
+			<xs:element name="TargetLib" type="xs:string"/>
+			<xs:element name="Optimization" type="xs:string"/>
+			<xs:element name="XPLink" type="xs:boolean"/>
+			<xs:element name="CharSetLib" type="xs:string"/>
+			<xs:element name="XOpSource" type="xs:string"/>
+			<xs:element name="XPG4" type="xs:boolean"/>
+		</xs:sequence>
+	</xs:complexType>
+	<xs:complexType name="ExstreamDevInfoType">
+		<xs:sequence>
+			<xs:element name="EXWIN32" type="xs:boolean"/>
+			<xs:element name="EXMSWIN" type="xs:boolean"/>
+			<xs:element name="EXUNIX" type="xs:boolean"/>
+			<xs:element name="EXSUN" type="xs:boolean"/>
+			<xs:element name="EXAIX" type="xs:boolean"/>
+			<xs:element name="ENGINE" type="xs:boolean"/>
+			<xs:element name="NONWINDOW" type="xs:boolean"/>
+		</xs:sequence>
+	</xs:complexType>
+</xs:schema>

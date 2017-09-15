@@ -1,0 +1,8 @@
+-RUNMODE=PRODUCTION
+-PACKAGEFILE=E:\installed_apps\CCM_Demo\UseCase1\ExstreamApplication\packages\Vivanet.pub
+-FILEMAP=ini,E:\installed_apps\CCM_Demo\UseCase1\ExstreamApplication\Input\Ini.txt
+-FILEMAP=NewSubscriber,E:\installed_apps\CCM_Demo\UseCase1\ExstreamApplication\Input\NewSubscribers.xml
+-FILEMAP=RetailStore,E:\installed_apps\CCM_Demo\UseCase1\ExstreamApplication\Input\Retail Locations.dat
+-FILEMAP=PDF_Output,E:\installed_apps\CCM_Demo\UseCase1\ExstreamApplication\Output\OUTPUT.pdf
+-MESSAGEFILE=E:\installed_apps\CCM_Demo\UseCase1\ExstreamApplication\Message\exstream_msg.txt
+*-REPORTFILE=C:\Watched Directory Demo\out\report.txt 

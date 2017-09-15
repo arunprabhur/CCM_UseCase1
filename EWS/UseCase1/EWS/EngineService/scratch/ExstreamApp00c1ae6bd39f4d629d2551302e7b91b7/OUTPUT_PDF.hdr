@@ -1,0 +1,13 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<Header>
+   <Version>101</Version>
+   <PDL>4</PDL>
+   <OutputLength>13976</OutputLength>
+   <MessageLength>0</MessageLength>
+   <QueueName>PDF_Queue</QueueName>
+   <UserDataLength>0</UserDataLength>
+   <UserData/>
+   <PageCount>2</PageCount>
+   <ReturnCode>4</ReturnCode>
+   <DDAOutputFile>0</DDAOutputFile>
+</Header>

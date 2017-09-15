@@ -1,0 +1,7 @@
+-PACKAGEFILE=E:\installed_apps\CCM_Demo\UseCase1\EWS\EngineService\packages\ExstreamApp.pub
+-FILEMAP=DRIVER,E:\installed_apps\CCM_Demo\UseCase1\EWS\EngineService\scratch\ExstreamApp00c1ae6bd39f4d629d2551302e7b91b7\DRIVER.in
+-OUTPUTFILE=E:\installed_apps\CCM_Demo\UseCase1\EWS\EngineService\scratch\ExstreamApp00c1ae6bd39f4d629d2551302e7b91b7\ExstreamApp.out
+-OUTPUTDIRECTORY=E:\installed_apps\CCM_Demo\UseCase1\EWS\EngineService\scratch\ExstreamApp00c1ae6bd39f4d629d2551302e7b91b7\
+-WRITEOUTPUTHEADER=hdr
+-MSGRESOURCE=E:\installed_apps\CCM_Demo\UseCase1\EWS\engine\MsgResource_en-us.dat
+-KEY=BXP9VuXmP7ZixaoOA5jlZ3WmADD3diNdOgKh2CbMcopdCdsUfNrDcXP9n8mb7BMc6aoOA5jlZ3W0pkL4iNQNspEb1Hrz1HgyDSsUf2kGgXP9n8mb7BMc6aoOA5jlZ3W0pkL4iNQdRCqh2Krz1HgyDSsUfC0

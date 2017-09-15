@@ -1,0 +1,25 @@
+EWS | 8/21/2017 11:11:41 AM | Temp Directory Created:  True
+EWS | 8/21/2017 11:11:41 AM | 
+EWS | 8/21/2017 11:11:41 AM | Initializing...
+EWS | 8/21/2017 11:11:41 AM | Working Directory:  E:\installed_apps\CCM_Demo\UseCase1\EWS\EngineService\scratch
+EWS | 8/21/2017 11:11:41 AM | SBCS Engine Path:  E:\installed_apps\CCM_Demo\UseCase1\EWS\engine\ProdEngine_dbcs.exe
+EWS | 8/21/2017 11:11:41 AM | DBCS Engine Path:  E:\installed_apps\CCM_Demo\UseCase1\EWS\engine\ProdEngine_dbcs.exe
+EWS | 8/21/2017 11:11:41 AM | Message Symbolics File Path:  E:\installed_apps\CCM_Demo\UseCase1\EWS\engine\MsgResource_en-us.dat
+EWS | 8/21/2017 11:11:41 AM | Pub Directory:  E:\installed_apps\CCM_Demo\UseCase1\EWS\EngineService\packages
+EWS | 8/21/2017 11:11:41 AM | DDA Directory:  E:\installed_apps\CCM_Demo\UseCase1\EWS\EngineService\dda
+EWS | 8/21/2017 11:11:41 AM | Output Directory:  E:\installed_apps\CCM_Demo\UseCase1\EWS\EngineService\output
+EWS | 8/21/2017 11:11:41 AM | Create Output Directories:  True
+EWS | 8/21/2017 11:11:41 AM | Sequenced Output:  True
+EWS | 8/21/2017 11:11:41 AM | Suppress Status Message:  False
+EWS | 8/21/2017 11:11:41 AM | Use Engine Output Names:  False
+EWS | 8/21/2017 11:11:41 AM | Retain Working Directory:  False
+EWS | 8/21/2017 11:11:41 AM | Pub File(s): E:\installed_apps\CCM_Demo\UseCase1\EWS\EngineService\packages\ExstreamApp.pub
+EWS | 8/21/2017 11:11:41 AM | Running Compose Service...
+EWS | 8/21/2017 11:11:41 AM | Driver File Name:  DRIVER
+EWS | 8/21/2017 11:11:41 AM | Stripped illegal characters from Driver File Name: DRIVER
+EWS | 8/21/2017 11:11:41 AM | Driver File Path:  E:\installed_apps\CCM_Demo\UseCase1\EWS\EngineService\scratch\ExstreamApp00c1ae6bd39f4d629d2551302e7b91b7\DRIVER.in
+EWS | 8/21/2017 11:11:41 AM | Driver File Written Successfully: 41 Bytes
+EWS | 8/21/2017 11:11:41 AM | Output File Pathname:  E:\installed_apps\CCM_Demo\UseCase1\EWS\EngineService\scratch\ExstreamApp00c1ae6bd39f4d629d2551302e7b91b7\ExstreamApp.out
+EWS | 8/21/2017 11:11:41 AM | Engine Run Complete - Run Status:  4
+EWS | 8/21/2017 11:11:41 AM | Parsing Output Created...
+EWS | 8/21/2017 11:11:41 AM | Added Output File to Service Response
